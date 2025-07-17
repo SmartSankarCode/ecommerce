@@ -4,6 +4,8 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const cookieParser = require("cookie-parser");
 const userRoutes = require('./routes/userRoutes');
+const path = require("path");
+
 
 dotenv.config();
 connectDB();
@@ -15,6 +17,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 // Routes
 app.use("/api/users", userRoutes); // auth routes
