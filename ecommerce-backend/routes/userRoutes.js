@@ -8,7 +8,7 @@ const {
   deleteUser,
   getAllUsers
 } = require("../controllers/userController");
-const { protect, isAdmin } = require("../middlewear/authMiddlewear");
+const { protect, isAdmin } = require("../middleware/authMiddleware");
 
 
 router.post("/register", registerUser);

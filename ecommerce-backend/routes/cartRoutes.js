@@ -11,7 +11,7 @@ const {
   getCartPaymentSummary
 } = require("../controllers/cartController");
 
-const { protect } = require("../middlewear/authMiddlewear"); // to check login
+const { protect } = require("../middleware/authMiddleware"); // to check login
 
 // Add item to cart
 router.post("/", protect, addToCart);
