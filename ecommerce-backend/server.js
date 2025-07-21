@@ -8,6 +8,7 @@ const path = require("path");
 const productRoutes = require('./routes/productRoutes');
 const deliveryOptionRoutes = require("./routes/deliveryOptionRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const orderRoutes = require('./routes/orderRoutes')
 
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use("/api/users", userRoutes); // auth routes
 app.use("/api/products", productRoutes); // Product Routes
 app.use("/api/delivery-options", deliveryOptionRoutes);
 app.use("/api/cart", cartRoutes); // cart routes
+app.use('/api/orders', orderRoutes) // order routes
 
 /*
 app.get("/", (req, res) => {
