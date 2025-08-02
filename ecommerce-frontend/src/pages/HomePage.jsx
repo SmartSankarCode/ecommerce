@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import './HomePage.css'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Header() {
   return (
@@ -43,19 +45,23 @@ function Header() {
 }
 
 export function HomePage() {
- 
-  fetch('http://localhost:3000/api/products?isTrending=true')
-  .then((response) => {
-    return response.json()
-  })
-  .then((data) => {
-    console.log(data)
-  })
+  const [trendingProducts, setTrendingProducts] = useState([]);
+
+  function loadProducts() {
+    axios.get('/api/products?isTrending=true')
+      .then((response) => {
+        setTrendingProducts(response.data);
+      });
+  }
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   return (
     <>
       <Header />
-      
+
       <div className="categories">
         <Link to="/category/mens" className="category-box">
           <img src="/images/banners/Mens banner.jpg" alt="Mens" className="category-image" />
@@ -78,23 +84,16 @@ export function HomePage() {
       <div className="trending-products">
         <h2>Trending Products</h2>
         <div className="product-grid">
-          <Link to="/product/:" className="product-card">
-            <img src="/images/products/Elephants Love Candle Holder with LED Candle.jpg" alt="Elephant Candle Holder" />
-            <h3>Elephant Lamp Home Decorater art plastic lamp with electric batteries</h3>
-            <p>₹999</p>
-          </Link>
-
-          <Link to="/product/:" className="product-card">
-            <img src="/images/products/Fashion mens denim shirt blue.jpg" alt="Men's Blue Shirt" />
-            <h3>Party wear Blue Shirt For Mens</h3>
-            <p>₹499</p>
-          </Link>
-
-          <Link to="/product/:" className="product-card">
-            <img src="/images/products/wishted fit womens Jeans.jpg" alt="Women's Jeans" />
-            <h3>Women's Blue Jeans </h3>
-            <p>₹799</p>
-          </Link>
+          {trendingProducts.map(product => {
+            return (
+              <Link to={`/product/${product._id}`} className="product-card"
+                key={product._id}>
+                <img src={`http://localhost:3000${product.image}`} alt={product.name} />
+                <h3>{product.name}</h3>
+                <p>₹{product.priceRupees}</p>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </>
