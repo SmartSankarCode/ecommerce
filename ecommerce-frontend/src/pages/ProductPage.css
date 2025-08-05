@@ -1,8 +1,7 @@
-
 .product-details {
   display: flex;
-  flex: 1;
   justify-content: center;
+  align-items: center;
   max-width: 80%;
   margin: 35px auto;
   gap: 30px;
@@ -20,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 20px;
 }
 
 .breadcrumb {
@@ -57,6 +57,7 @@
   transition: background-color 0.3s ease;
   margin-top: 16px;
   align-self: start;
+  margin-bottom: 10px;
 }
 
 .add-to-cart-btn:hover {
@@ -66,7 +67,7 @@
 .coupon-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .recommended-section {
@@ -76,8 +77,8 @@
 }
 
 .recommended-section h2 {
- padding-top: 20px;
- padding-left: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .recommended-grid {
@@ -147,7 +148,7 @@
 .review {
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .review-header {
@@ -163,4 +164,40 @@
 .review-comment {
   margin-top: 5px;
   font-style: italic;
+}
+
+/* // resposive */
+@media screen and (max-width: 850px) {
+  .product-details {
+    max-width: 90%;
+    flex-direction: column;
+  }
+
+  .product-details-image {
+    margin: auto;
+  }
+
+  .recommended-section {
+    max-width: 90%;
+  }
+
+  .product-reviews {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  
+  .product-details-image {
+    max-height: 300px;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  .recommended-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+  }
+
 }
