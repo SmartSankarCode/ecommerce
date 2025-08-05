@@ -1,0 +1,143 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 35px;
+  background-color: rgb(26, 115, 232);
+  /* Blue header */
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Left Section - Logos */
+.left-section a {
+  display: flex;
+  align-items: center;
+}
+
+.left-section .logo {
+  height: 45px;
+  padding-bottom: 5px;
+}
+
+.ecommerce-logo,
+.ecommerce-logo-small {
+  height: 50px;
+  width: auto;
+}
+
+.ecommerce-logo-small {
+  display: none;
+  /* use for small screens  */
+}
+
+/* Middle Section - Search */
+.middle-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  width: 80%;
+  max-width: 500px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.search-button {
+  border-radius: 50px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* Right Section - Login/Orders + Cart */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.right-section a {
+  color: #fff;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* Cart Icon and Quantity */
+.cart-icon {
+  width: 40px;
+  height: 35px;
+}
+
+.cart-quantity {
+  position: absolute;
+  top: 3px;
+  right: 41px;
+  color: rgb(26, 115, 232);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* 900px and below */
+@media screen and (max-width: 950px) {
+  .left-section .logo {
+    height: 45px;
+    padding-bottom: 3px;
+  }
+
+  .ecommerce-logo {
+    display: none;
+  }
+
+  .ecommerce-logo-small {
+    display: block;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    padding: 10px;
+  }
+
+  .left-section .logo {
+    height: 55px;
+  }
+
+  .ecommerce-logo-small {
+    display: none;
+  }
+
+  .middle-section {
+    gap: 3px;
+  }
+
+  .search-input {
+    width: 70%;
+    font-size: 18px;
+  }
+
+  .right-section {
+    gap: 10px;
+  }
+
+}

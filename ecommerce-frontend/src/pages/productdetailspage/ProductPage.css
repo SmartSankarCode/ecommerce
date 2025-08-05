@@ -6,12 +6,15 @@
   margin: 35px auto;
   gap: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid rgb(221, 216, 216); */
+
 }
 
 .product-details-image {
   max-height: 400px;
   max-width: 400px;
   object-fit: contain;
+  padding-top: 20px;
 }
 
 .product-details-info {
@@ -166,7 +169,6 @@
   font-style: italic;
 }
 
-/* // resposive */
 @media screen and (max-width: 850px) {
   .product-details {
     max-width: 90%;
@@ -187,7 +189,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  
+
   .product-details-image {
     max-height: 300px;
     max-width: 300px;
@@ -199,5 +201,4 @@
     height: 120px;
     object-fit: contain;
   }
-
 }
