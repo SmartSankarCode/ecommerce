@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import './HomePage.css'
 
 
-function Header() {
+export function Header() {
   return (
     <>
       <div className="header">
