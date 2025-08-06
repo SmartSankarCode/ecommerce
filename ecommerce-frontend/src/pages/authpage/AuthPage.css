@@ -1,0 +1,39 @@
+.auth-page {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 32px;
+  border-radius: 10px;
+  background-color: rgb(245, 245, 245);
+  text-align: center;
+}
+
+.auth-page h2 {
+  margin-bottom: 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.auth-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgb(204, 204, 204);
+  font-size: 16px;
+}
+
+.auth-form button {
+  padding: 10px;
+  background-color: rgb(26, 115, 232);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.auth-page p {
+  margin-top: 25px;
+  font-size: 14px;
+}
