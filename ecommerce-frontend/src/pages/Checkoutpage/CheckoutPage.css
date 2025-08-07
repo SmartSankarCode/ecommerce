@@ -1,3 +1,4 @@
+/* Header Section */
 .checkout-header {
   max-width: 80%;
   margin: 0px auto;
@@ -64,7 +65,7 @@
 }
 
 
-/* checkout  */
+/* checkout Section */
 .checkout-page {
   max-width: 80%;
   padding: 30px 30px;
@@ -150,6 +151,7 @@
   width: 18px;
 }
 
+/* DeliveryOptions Section  */
 .delivery-options-title {
   font-weight: 700;
   margin-bottom: 10px;
@@ -177,6 +179,7 @@
   font-size: 15px;
 }
 
+/* payments summary Section  */
 .payment-summary-title {
   font-weight: 700;
   font-size: 18px;
@@ -221,4 +224,65 @@
   background-color: rgb(26, 115, 232);
   color: #fff;
   font-size: medium;
+}
+
+/* resposive CSS */
+@media screen and (max-width: 1000px) {
+  .checkout-logo {
+    padding-bottom: 3px;
+  }
+
+  .checkout-ecommerce-logo {
+    display: none;
+  }
+
+  .checkout-ecommerce-logo-small {
+    display: block;
+    height: 30px;
+  }
+
+  .checkout-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-summary,
+  .payment-summary {
+    width: 100%;
+  }
+
+  .payment-summary {
+    margin-top: 20px;
+  }
+
+  .cart-item-details-grid {
+    grid-template-columns: 100px 1fr;
+    row-gap: 30px;
+  }
+
+  .delivery-options {
+    /* this was set up using chatgpt  */
+    grid-column: 1 / span 2;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .checkout-header {
+    max-width: 100%;
+  }
+
+  .checkout-ecommerce-logo-small {
+    display: none;
+  }
+
+  .checkout-header-middle-section {
+    font-size: 20px;
+  }
+
+  .checkout-page {
+    max-width: 90%;
+    padding: 20px 20px;
+    margin: 10px auto;
+  }
 }
