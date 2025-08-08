@@ -1,7 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import './Header.css';
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        await axios.get('/api/users/profile', { withCredentials: true });
+        setIsLoggedIn(true);
+      } catch {
+        setIsLoggedIn(false);
+      }
+    }
+    checkAuth();
+  }, []);
+
+  function handleLogin (e) {
+    if (!isLoggedIn) {
+      e.preventDefault(); // Stop the normal <Link> navigation
+      navigate('/login');
+    }
+  }
+
   return (
     <div className="header">
       <div className="left-section">
@@ -18,10 +43,10 @@ export default function Header() {
         </button>
       </div>
       <div className="right-section">
-        <Link to="/">
-          <span>Login/Orders</span>
+        <Link to="/orders" onClick={handleLogin}>
+          <span>Orders</span>
         </Link>
-        <Link to="/">
+        <Link to="/checkout" onClick={handleLogin}>
           <img className="cart-icon" src="/images/icons/cart-icon.png" alt="Cart" />
           <div className="cart-quantity">0</div>
           <div className="cart-text">Cart</div>
