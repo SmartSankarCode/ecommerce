@@ -34,6 +34,22 @@ export default function CheckoutPage() {
     getDeliveryOptions();
   }, [])
 
+  async function updateQuantity(productId, event) {
+    const newQuantity = Number(event.target.value)
+
+    await axios.put(`/api/cart/${productId}`, {
+      quantity: newQuantity
+    })
+
+    const [cartRes, summaryRes] = await Promise.all([
+      axios.get('/api/cart/'),
+      axios.get('/api/cart/summary'),
+    ]);
+
+    setCartItems(cartRes.data);
+    setPaymentSummary(summaryRes.data);
+  }
+
   return (
     <>
       <div className="checkout-header">
@@ -85,7 +101,8 @@ export default function CheckoutPage() {
                         <span>
                           Quantity:
                           <span className="update-quantity-container">
-                            <select value={item.quantity} disabled>
+                            <select value={item.quantity}
+                              onChange={(event) => updateQuantity(item.productId, event)}>
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
