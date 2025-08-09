@@ -1,4 +1,48 @@
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
 export default function ProductDetails({ product }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        await axios.get('/api/users/profile', { withCredentials: true });
+        setIsLoggedIn(true);
+      } catch {
+        setIsLoggedIn(false);
+      }
+    }
+    checkAuth();
+  }, []);
+
+  async function addToCart() {
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
+    try {
+      await axios.post('/api/cart/', {
+        productId: product._id,
+        quantity: 1
+      }, {
+        withCredentials: true
+      }
+      );
+
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 2000);// appear msg for 2s
+
+    } catch {
+      navigate('/login');
+      return;
+    }
+  }
+
   return (
     <div className="product-details">
       <img
@@ -18,7 +62,13 @@ export default function ProductDetails({ product }) {
         <h2>{product.name}</h2>
         <p className="price">₹{product.priceRupees}</p>
         <p className="rating">⭐ {product.rating?.stars} ({product.rating?.count} ratings)</p>
-        <button className="add-to-cart-btn">Add to Cart</button>
+
+        <div className={`success-message ${showMessage ? 'visible' : ''}`}>
+          <img className="checkmark-icon" src="/images/icons/checkmark.png" alt="checkmark-img" />
+          <span>Added</span>
+        </div>
+
+        <button className="add-to-cart-btn" onClick={addToCart}>Add to Cart</button>
 
         <div className="coupon-section">
           <h3>🧾 Coupons</h3>

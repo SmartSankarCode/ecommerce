@@ -50,6 +50,24 @@
   margin-bottom: 16px;
 }
 
+.success-message {
+  display: flex;
+  color: rgb(43, 128, 239);
+  font-weight: 800;
+  opacity: 0;
+}
+
+.success-message.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.checkmark-icon {
+  height: 17px;
+  margin-right: 5px;
+  padding-top: 1px;
+}
+
 .add-to-cart-btn {
   background-color: rgb(26, 115, 232);
   color: #fff;
@@ -57,14 +75,18 @@
   border: none;
   border-radius: 10px;
   font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-top: 16px;
+  /* transition: background-color 0.3s ease; */
+  /* margin-top: 16px; */
   align-self: start;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
-
+/* 
 .add-to-cart-btn:hover {
   background-color: rgb(93, 153, 244);
+} */
+
+.add-to-cart-btn:active {
+  background-color: rgb(93, 153, 244); 
 }
 
 .coupon-section {
