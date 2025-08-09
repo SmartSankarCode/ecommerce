@@ -1,8 +1,31 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import dayjs from 'dayjs'
 
-import "./CheckoutPage.css"; // Convert your HTML styles into this CSS file
+import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
+  const [deliveryOptions, setDeliveryOprtions] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    async function getDeliveryOptions() {
+      const res = await axios.get('/api/delivery-options/')
+      setDeliveryOprtions(res.data)
+      console.log(res.data)
+    }
+
+    async function getCartItems() {
+      const res = await axios.get('/api/cart/')
+      setCartItems(res.data)
+      console.log(res.data)
+    }
+
+    getCartItems();
+    getDeliveryOptions();
+  }, [])
+
   return (
     <>
       <div className="checkout-header">
@@ -31,134 +54,85 @@ export default function CheckoutPage() {
 
         <div className="checkout-grid">
           <div className="order-summary">
-            <div className="cart-item-container">
-              <div className="delivery-date">Delivery date: Wednesday, August 13</div>
+            {deliveryOptions.length > 0 && cartItems.map(item => {
+              const selectedDeliveryOption = deliveryOptions
+                .find(option => {
+                  return option.id === item.deliveryOptionId
+                });
 
-              <div className="cart-item-details-grid">
-                <img className="product-image" src="/images/products/Elephants Love Candle Holder with LED Candle.jpg" alt="Product" />
-
-                <div className="cart-item-details">
-                  <div className="product-name">Elephants Love Candle Holder With LED Candle</div>
-                  <div className="product-price">₹675</div>
-                  <div className="product-quantity">
-                    <span>
-                      Quantity:
-                      <span className="update-quantity-container">
-                        <select>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
-                      </span>
-                    </span>
-                    <span className="delete-item">
-                      <img className="delete-icon"
-                        src="/images/icons/delete-icon.png" alt="delete-icon" />
-                      <span>Remove</span>
-                    </span>
+              return (
+                <div className="cart-item-container" key={item.productId}>
+                  <div className="delivery-date">
+                    Delivery date: {dayjs().add(selectedDeliveryOption.deliveryDays, 'day')
+                      .format('dddd, MMMM D')}
                   </div>
-                </div>
 
-                <div className="delivery-options">
-                  <div className="delivery-options-title">Choose a delivery option:</div>
+                  <div className="cart-item-details-grid">
+                    <img className="product-image" src={`http://localhost:3000${item.product.image}`} alt="Product" />
 
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" defaultChecked />
-                    <div>
-                      <div className="delivery-option-date">Wednesday, August 13</div>
-                      <div className="delivery-option-price">FREE Shipping</div>
+                    <div className="cart-item-details">
+                      <div className="product-name">{item.product.name}</div>
+                      <div className="product-price">₹{item.product.priceRupees}</div>
+                      <div className="product-quantity">
+                        <span>
+                          Quantity:
+                          <span className="update-quantity-container">
+                            <select value={item.quantity} disabled>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              {
+                                item.quantity > 10 && (
+                                  <option key={item.quantity} value={item.quantity}>
+                                  {item.quantity}
+                                  </option>
+                                )
+                              }
+                            </select>
+                          </span>
+                        </span>
+                        <span className="delete-item">
+                          <img className="delete-icon"
+                            src="/images/icons/delete-icon.png" alt="delete-icon" />
+                          <span>Remove</span>
+                        </span>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" />
-                    <div>
-                      <div className="delivery-option-date">Saturday, August 9</div>
-                      <div className="delivery-option-price">₹49 - Shipping</div>
-                    </div>
-                  </div>
-
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" />
-                    <div>
-                      <div className="delivery-option-date">Thursday, August 7</div>
-                      <div className="delivery-option-price">₹99 - Shipping</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="cart-item-container">
-              <div className="delivery-date">Delivery date: Wednesday, August 13</div>
-
-              <div className="cart-item-details-grid">
-                <img className="product-image" src="/images/products/Elephants Love Candle Holder with LED Candle.jpg" alt="Product" />
-
-                <div className="cart-item-details">
-                  <div className="product-name">Elephants Love Candle Holder With LED Candle</div>
-                  <div className="product-price">₹675</div>
-                  <div className="product-quantity">
-                    <span>
-                      Quantity:
-                      <span className="update-quantity-container">
-                        <select>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
-                      </span>
-                    </span>
-                    <span className="delete-item">
-                      <img className="delete-icon"
-                        src="/images/icons/delete-icon.png" alt="delete-icon" />
-                      <span>Remove</span>
-                    </span>
-                  </div>
-                </div>
-
-                <div className="delivery-options">
-                  <div className="delivery-options-title">Choose a delivery option:</div>
-
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" defaultChecked />
-                    <div>
-                      <div className="delivery-option-date">Wednesday, August 13</div>
-                      <div className="delivery-option-price">FREE Shipping</div>
-                    </div>
-                  </div>
-
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" />
-                    <div>
-                      <div className="delivery-option-date">Saturday, August 9</div>
-                      <div className="delivery-option-price">₹49 - Shipping</div>
-                    </div>
-                  </div>
-
-                  <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input" name="delivery-option-1" />
-                    <div>
-                      <div className="delivery-option-date">Thursday, August 7</div>
-                      <div className="delivery-option-price">₹99 - Shipping</div>
+                    <div className="delivery-options">
+                      <div className="delivery-options-title">Choose a delivery option:</div>
+                      {deliveryOptions.map(option => {
+                        const deliveryDate = dayjs().add(option.deliveryDays, 'day')
+                          .format('dddd, MMMM D');
+                        return (
+                          <div className="delivery-option" key={option.id}>
+                            <input type="radio" className="delivery-option-input"
+                              name={`delivery-option-${item.productId}`}
+                              defaultChecked={option.id === item.
+                                deliveryOptionId} />
+                            <div>
+                              <div className="delivery-option-date">{deliveryDate}</div>
+                              <div className="delivery-option-price">
+                                {option.priceRupees === 0
+                                  ? "FREE Shipping"
+                                  : `₹${option.priceRupees} - Shipping`}
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              )
+            })}
           </div>
 
           <div className="payment-summary">
@@ -196,4 +170,3 @@ export default function CheckoutPage() {
     </>
   );
 }
- 
