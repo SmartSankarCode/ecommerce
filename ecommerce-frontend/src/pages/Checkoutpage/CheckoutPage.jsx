@@ -6,22 +6,30 @@ import dayjs from 'dayjs'
 import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
-  const [deliveryOptions, setDeliveryOprtions] = useState([]);
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [paymentSummary, setPaymentSummary] = useState(null);
 
   useEffect(() => {
     async function getDeliveryOptions() {
       const res = await axios.get('/api/delivery-options/')
-      setDeliveryOprtions(res.data)
-      console.log(res.data)
+      setDeliveryOptions(res.data)
+      // console.log(res.data)
     }
 
     async function getCartItems() {
       const res = await axios.get('/api/cart/')
       setCartItems(res.data)
+      // console.log(res.data)
+    }
+
+    async function getPaymentsDetails() {
+      const res = await axios.get('/api/cart/summary')
+      setPaymentSummary(res.data)
       console.log(res.data)
     }
 
+    getPaymentsDetails();
     getCartItems();
     getDeliveryOptions();
   }, [])
@@ -91,7 +99,7 @@ export default function CheckoutPage() {
                               {
                                 item.quantity > 10 && (
                                   <option key={item.quantity} value={item.quantity}>
-                                  {item.quantity}
+                                    {item.quantity}
                                   </option>
                                 )
                               }
@@ -137,33 +145,50 @@ export default function CheckoutPage() {
 
           <div className="payment-summary">
             <div className="payment-summary-title">Payment Summary</div>
+            {paymentSummary && (
+              <>
+                <div className="payment-summary-row">
+                  <div>
+                    Price ({paymentSummary.cartQuantity} Items ):
+                  </div>
+                  <div className="payment-summary-money">
+                    ₹{paymentSummary.productPriceRupees}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row">
-              <div>Price (3 Items ) :</div>
-              <div className="payment-summary-money">₹999</div>
-            </div>
+                <div className="payment-summary-row">
+                  <div>Shipping & handling:</div>
+                  <div className="payment-summary-money">
+                    ₹{paymentSummary.shippingPriceRupees}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row">
-              <div>Shipping & handling:</div>
-              <div className="payment-summary-money">₹49</div>
-            </div>
+                <div className="payment-summary-row subtotal-row">
+                  <div>Total before discount:</div>
+                  <div className="payment-summary-money">
+                    ₹{paymentSummary.productPriceRupees
+                      + paymentSummary.shippingPriceRupees}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row subtotal-row">
-              <div>Total before discount:</div>
-              <div className="payment-summary-money">₹1048</div>
-            </div>
+                <div className="payment-summary-row">
+                  <div>Discount (5%):</div>
+                  <div className="payment-summary-money">
+                    ₹{paymentSummary.discountAmount}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row">
-              <div>Discount (5%):</div>
-              <div className="payment-summary-money">₹53</div>
-            </div>
+                <div className="payment-summary-row total-row">
+                  <div>Order total:</div>
+                  <div className="payment-summary-money">
+                    ₹{paymentSummary.orderTotal}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row total-row">
-              <div>Order total:</div>
-              <div className="payment-summary-money">₹995</div>
-            </div>
+                <button className="place-order-button ">Place your order</button>
+              </>
+            )}
 
-            <button className="place-order-button ">Place your order</button>
           </div>
         </div>
       </div>
