@@ -26,7 +26,7 @@ export default function CheckoutPage() {
     async function getPaymentsDetails() {
       const res = await axios.get('/api/cart/summary')
       setPaymentSummary(res.data)
-      console.log(res.data)
+      // console.log(res.data)
     }
 
     getPaymentsDetails();
@@ -41,6 +41,20 @@ export default function CheckoutPage() {
       quantity: newQuantity
     })
 
+    const [cartRes, summaryRes] = await Promise.all([
+      axios.get('/api/cart/'),
+      axios.get('/api/cart/summary'),
+    ]);
+
+    setCartItems(cartRes.data);
+    setPaymentSummary(summaryRes.data);
+  }
+
+  async function updateDeliveryOption(productId, deliveryOptionId) {
+    await axios.put(`/api/cart/${productId}`, {
+      deliveryOptionId
+    })
+    // destructuring
     const [cartRes, summaryRes] = await Promise.all([
       axios.get('/api/cart/'),
       axios.get('/api/cart/summary'),
@@ -140,8 +154,8 @@ export default function CheckoutPage() {
                           <div className="delivery-option" key={option.id}>
                             <input type="radio" className="delivery-option-input"
                               name={`delivery-option-${item.productId}`}
-                              defaultChecked={option.id === item.
-                                deliveryOptionId} />
+                              checked={option.id === item.deliveryOptionId}
+                              onChange={() => updateDeliveryOption(item.productId, option.id)} />
                             <div>
                               <div className="delivery-option-date">{deliveryDate}</div>
                               <div className="delivery-option-price">
