@@ -58,10 +58,24 @@
   align-items: center;
   gap: 10px;
   font-style: italic;
+  position: relative;
+  cursor: pointer;
 }
 
 .checkout-header-right-section img {
   height: 35px;
+}
+
+.user-logout {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  color: rgb(26, 115, 232);
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1;
 }
 
 

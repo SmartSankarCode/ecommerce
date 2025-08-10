@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import dayjs from 'dayjs'
 
 import "./CheckoutPage.css";
 
-export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
+export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
+  const [user, setUser] = useState(null);
+  const [showLogoutOption, setShowLogoutOption] = useState(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     async function getDeliveryOptions() {
@@ -29,6 +33,13 @@ export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
       // console.log(res.data)
     }
 
+    async function getUserProfile() {
+      const res = await axios.get('/api/users/profile', { withCredentials: true });
+      setUser(res.data);
+      // console.log(res.data)
+    }
+
+    getUserProfile();
     getPaymentsDetails();
     getCartItems();
     getDeliveryOptions();
@@ -68,7 +79,7 @@ export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
 
   async function removeCartItem(productId) {
     await axios.delete(`/api/cart/${productId}`);
-    
+
     const [cartRes, summaryRes] = await Promise.all([
       axios.get('/api/cart/'),
       axios.get('/api/cart/summary'),
@@ -77,6 +88,12 @@ export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
     await fetchCartQuantity();
     setCartItems(cartRes.data);
     setPaymentSummary(summaryRes.data);
+  }
+
+  async function logout() {
+    await axios.post('/api/users/logout', { withCredentials: true });
+    setUser(null);
+    navigate('/login');
   }
 
   return (
@@ -96,8 +113,13 @@ export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
           </div>
 
           <div className="checkout-header-right-section">
-            <span>User  </span>
-            <img src="/images/icons/user-icon.png" alt="User Icon" />
+            <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
+              {user?.name || "Guest"}</span>
+            <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
+              src="/images/icons/user-icon.png" alt="User Icon" />
+            {showLogoutOption && user && <span
+              className="user-logout"
+              onClick={() => { logout() }}>Logout</span>}
           </div>
         </div>
       </div>
