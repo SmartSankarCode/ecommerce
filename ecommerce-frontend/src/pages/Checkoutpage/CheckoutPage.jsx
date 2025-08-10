@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 
 import "./CheckoutPage.css";
 
-export default function CheckoutPage() {
+export default function CheckoutPage({cartQuantity, fetchCartQuantity}) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
@@ -46,6 +46,7 @@ export default function CheckoutPage() {
       axios.get('/api/cart/summary'),
     ]);
 
+    await fetchCartQuantity();
     setCartItems(cartRes.data);
     setPaymentSummary(summaryRes.data);
   }
@@ -60,6 +61,7 @@ export default function CheckoutPage() {
       axios.get('/api/cart/summary'),
     ]);
 
+    await fetchCartQuantity();
     setCartItems(cartRes.data);
     setPaymentSummary(summaryRes.data);
   }
@@ -71,6 +73,8 @@ export default function CheckoutPage() {
       axios.get('/api/cart/'),
       axios.get('/api/cart/summary'),
     ]);
+
+    await fetchCartQuantity();
     setCartItems(cartRes.data);
     setPaymentSummary(summaryRes.data);
   }
@@ -88,7 +92,7 @@ export default function CheckoutPage() {
           </div>
 
           <div className="checkout-header-middle-section">
-            Checkout (<a className="return-to-home-link" href="/">2 items</a>)
+            Checkout (<a className="return-to-home-link" href="/">{cartQuantity} items</a>)
           </div>
 
           <div className="checkout-header-right-section">

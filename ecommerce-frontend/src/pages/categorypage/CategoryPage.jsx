@@ -6,7 +6,7 @@ import ProductList from '../../components/ProductList';
 
 import './CategoryPage.css'
 
-export default function CategoryPage() {
+export default function CategoryPage({ cartQuantity }) {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
 
@@ -17,7 +17,7 @@ export default function CategoryPage() {
 
   return (
     <>
-      <Header />
+      <Header cartQuantity={cartQuantity} />
 
       <div className="category-page">
         <div className="breadcrumb">

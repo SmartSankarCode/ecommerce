@@ -7,7 +7,7 @@ import ProductList from '../../components/ProductList';
 
 import './HomePage.css';
 
-export default function HomePage() {
+export default function HomePage({ cartQuantity }) {
   const [trendingProducts, setTrendingProducts] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
+      <Header cartQuantity={cartQuantity} />
       <Categories />
       <div className="trending-products">
         <h2>Trending Products</h2>

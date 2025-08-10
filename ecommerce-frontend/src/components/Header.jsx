@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './Header.css';
 
-export default function Header() {
+export default function Header({ cartQuantity }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ export default function Header() {
         </Link>
         <Link to="/checkout" onClick={handleLogin}>
           <img className="cart-icon" src="/images/icons/cart-icon.png" alt="Cart" />
-          <div className="cart-quantity">0</div>
+          <div className="cart-quantity">{ cartQuantity }</div>
           <div className="cart-text">Cart</div>
         </Link>
       </div>

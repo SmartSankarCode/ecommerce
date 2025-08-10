@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-export default function ProductDetails({ product }) {
+export default function ProductDetails({ product, fetchCartQuantity }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
@@ -33,6 +33,8 @@ export default function ProductDetails({ product }) {
         withCredentials: true
       }
       );
+
+      await fetchCartQuantity();
 
       setShowMessage(true);
       setTimeout(() => setShowMessage(false), 2000);// appear msg for 2s

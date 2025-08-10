@@ -9,7 +9,7 @@ import ProductReviews from './ProductReviews';
 
 import './ProductPage.css';
 
-export default function ProductPage() {
+export default function ProductPage({cartQuantity, fetchCartQuantity}) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [recommendedProducts, setRecommendedProducts] = useState([]);
@@ -25,8 +25,8 @@ export default function ProductPage() {
 
   return (
     <>
-      <Header />
-      <ProductDetails product={product} />
+      <Header cartQuantity={cartQuantity} />
+      <ProductDetails product={product} fetchCartQuantity={fetchCartQuantity} />
       <RecommendedProducts products={recommendedProducts} />
       <ProductReviews rating={product.rating} />
     </>
