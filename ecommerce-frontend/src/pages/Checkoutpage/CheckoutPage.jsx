@@ -64,6 +64,17 @@ export default function CheckoutPage() {
     setPaymentSummary(summaryRes.data);
   }
 
+  async function removeCartItem(productId) {
+    await axios.delete(`/api/cart/${productId}`);
+    
+    const [cartRes, summaryRes] = await Promise.all([
+      axios.get('/api/cart/'),
+      axios.get('/api/cart/summary'),
+    ]);
+    setCartItems(cartRes.data);
+    setPaymentSummary(summaryRes.data);
+  }
+
   return (
     <>
       <div className="checkout-header">
@@ -137,7 +148,8 @@ export default function CheckoutPage() {
                             </select>
                           </span>
                         </span>
-                        <span className="delete-item">
+                        <span className="delete-item"
+                          onClick={() => removeCartItem(item.productId)}>
                           <img className="delete-icon"
                             src="/images/icons/delete-icon.png" alt="delete-icon" />
                           <span>Remove</span>
