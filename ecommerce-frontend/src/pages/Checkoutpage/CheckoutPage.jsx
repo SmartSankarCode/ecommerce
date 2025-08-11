@@ -13,37 +13,28 @@ export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
   const [showLogoutOption, setShowLogoutOption] = useState(false);
   const navigate = useNavigate();
 
+  async function fetchCheckoutData() {
+    const [
+      deliveryOptionsRes,
+      cartItemsRes,
+      paymentSummaryRes,
+      profileRes
+    ] = await Promise.all([
+      axios.get('/api/delivery-options/'),
+      axios.get('/api/cart/'),
+      axios.get('/api/cart/summary'),
+      axios.get('/api/users/profile')
+    ]);
+
+    setDeliveryOptions(deliveryOptionsRes.data);
+    setCartItems(cartItemsRes.data);
+    setPaymentSummary(paymentSummaryRes.data);
+    setUser(profileRes.data);
+  }
 
   useEffect(() => {
-    async function getDeliveryOptions() {
-      const res = await axios.get('/api/delivery-options/')
-      setDeliveryOptions(res.data)
-      // console.log(res.data)
-    }
-
-    async function getCartItems() {
-      const res = await axios.get('/api/cart/')
-      setCartItems(res.data)
-      // console.log(res.data)
-    }
-
-    async function getPaymentsDetails() {
-      const res = await axios.get('/api/cart/summary')
-      setPaymentSummary(res.data)
-      // console.log(res.data)
-    }
-
-    async function getUserProfile() {
-      const res = await axios.get('/api/users/profile', { withCredentials: true });
-      setUser(res.data);
-      // console.log(res.data)
-    }
-
-    getUserProfile();
-    getPaymentsDetails();
-    getCartItems();
-    getDeliveryOptions();
-  }, [])
+    fetchCheckoutData();  
+  }, [cartQuantity])
 
   async function updateQuantity(productId, event) {
     const newQuantity = Number(event.target.value)
@@ -52,42 +43,24 @@ export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
       quantity: newQuantity
     })
 
-    const [cartRes, summaryRes] = await Promise.all([
-      axios.get('/api/cart/'),
-      axios.get('/api/cart/summary'),
-    ]);
-
     await fetchCartQuantity();
-    setCartItems(cartRes.data);
-    setPaymentSummary(summaryRes.data);
+    // fetchCheckoutData()
   }
 
   async function updateDeliveryOption(productId, deliveryOptionId) {
     await axios.put(`/api/cart/${productId}`, {
       deliveryOptionId
     })
-    // destructuring
-    const [cartRes, summaryRes] = await Promise.all([
-      axios.get('/api/cart/'),
-      axios.get('/api/cart/summary'),
-    ]);
-
-    await fetchCartQuantity();
-    setCartItems(cartRes.data);
-    setPaymentSummary(summaryRes.data);
+    
+    // await fetchCartQuantity();
+    fetchCheckoutData();
   }
 
   async function removeCartItem(productId) {
     await axios.delete(`/api/cart/${productId}`);
 
-    const [cartRes, summaryRes] = await Promise.all([
-      axios.get('/api/cart/'),
-      axios.get('/api/cart/summary'),
-    ]);
-
     await fetchCartQuantity();
-    setCartItems(cartRes.data);
-    setPaymentSummary(summaryRes.data);
+    // fetchCheckoutData();
   }
 
   async function logout() {

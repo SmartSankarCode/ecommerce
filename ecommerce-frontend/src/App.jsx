@@ -12,7 +12,7 @@ import './App.css'
 
 function App() {
   const [cartQuantity, setCartQuantity] = useState(0)
-
+  // i setup cartqunatity in paymentsummary api in my backend
   async function fetchCartQuantity() {
     const res = await axios.get('/api/cart/summary');
     setCartQuantity(res.data.cartQuantity || 0);
