@@ -1,0 +1,53 @@
+
+export default function PaymentSummary({ paymentSummary }) {
+
+  return (
+    <div className="payment-summary">
+      <div className="payment-summary-title">Payment Summary</div>
+      {paymentSummary && (
+        <>
+          <div className="payment-summary-row">
+            <div>
+              Price ({paymentSummary.cartQuantity} Items ):
+            </div>
+            <div className="payment-summary-money">
+              ₹{paymentSummary.productPriceRupees}
+            </div>
+          </div>
+
+          <div className="payment-summary-row">
+            <div>Shipping & handling:</div>
+            <div className="payment-summary-money">
+              ₹{paymentSummary.shippingPriceRupees}
+            </div>
+          </div>
+
+          <div className="payment-summary-row subtotal-row">
+            <div>Total before discount:</div>
+            <div className="payment-summary-money">
+              ₹{paymentSummary.productPriceRupees
+                + paymentSummary.shippingPriceRupees}
+            </div>
+          </div>
+
+          <div className="payment-summary-row">
+            <div>Discount (5%):</div>
+            <div className="payment-summary-money">
+              ₹{paymentSummary.discountAmount}
+            </div>
+          </div>
+
+          <div className="payment-summary-row total-row">
+            <div>Order total:</div>
+            <div className="payment-summary-money">
+              ₹{paymentSummary.orderTotal}
+            </div>
+          </div>
+
+          <button className="place-order-button ">Place your order</button>
+        </>
+      )}
+
+    </div>
+  )
+}
