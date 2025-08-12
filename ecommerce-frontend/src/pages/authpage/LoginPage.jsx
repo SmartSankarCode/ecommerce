@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 
 import './AuthPage.css';
 
-export default function LoginPage() {
+export default function LoginPage({setIsLoggedIn, fetchCartQuantity}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -25,6 +25,10 @@ export default function LoginPage() {
       }, {
         withCredentials: true
       });
+
+      setIsLoggedIn(true);
+      
+      await fetchCartQuantity();
 
       navigate('/'); 
 

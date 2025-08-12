@@ -7,11 +7,18 @@ import PaymentSummary from './PaymentSummary';
 
 import "./CheckoutPage.css";
 
-export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
+export default function CheckoutPage({ 
+  cartQuantity, 
+  setCartQuantity,
+  fetchCartQuantity, 
+  isLoggedIn, 
+  setIsLoggedIn,
+  user, 
+}) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [showLogoutOption, setShowLogoutOption] = useState(false);
   const navigate = useNavigate();
 
@@ -20,29 +27,36 @@ export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
       deliveryOptionsRes,
       cartItemsRes,
       paymentSummaryRes,
-      profileRes
+      // profileRes
     ] = await Promise.all([
-      axios.get('/api/delivery-options/'),
-      axios.get('/api/cart/'),
-      axios.get('/api/cart/summary'),
-      axios.get('/api/users/profile')
+      axios.get('/api/delivery-options/', { withCredentials: true }),
+      axios.get('/api/cart/', { withCredentials: true }),
+      axios.get('/api/cart/summary', { withCredentials: true }),
+      // axios.get('/api/users/profile')
     ]);
 
     setDeliveryOptions(deliveryOptionsRes.data);
     setCartItems(cartItemsRes.data);
     setPaymentSummary(paymentSummaryRes.data);
-    setUser(profileRes.data);
+    // setUser(profileRes.data);
   }
 
   useEffect(() => {
-    fetchCheckoutData();
-  }, [cartQuantity])
+    if (isLoggedIn) {
+      fetchCheckoutData();
+    } else {
+      navigate("/login");
+    }
+  }, [isLoggedIn, cartQuantity])
 
 
 
   async function logout() {
     await axios.post('/api/users/logout', { withCredentials: true });
-    setUser(null);
+    // setUser(null);
+    setIsLoggedIn(false);
+    setCartQuantity('');
+    // await fetchCartQuantity();
     navigate('/login');
   }
 
@@ -59,12 +73,12 @@ export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
           </div>
 
           <div className="checkout-header-middle-section">
-            Checkout (<a className="return-to-home-link" href="/">{cartQuantity} items</a>)
+            Checkout (<Link className="return-to-home-link" to="/">{cartQuantity} items</Link>)
           </div>
 
           <div className="checkout-header-right-section">
             <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
-              {user?.name || "Guest"}</span>
+              {user?.name || ""}</span>
             <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
               src="/images/icons/user-icon.png" alt="User Icon" />
             {showLogoutOption && user && <span
@@ -80,7 +94,7 @@ export default function CheckoutPage({ cartQuantity, fetchCartQuantity }) {
         <div className="checkout-grid">
           <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
             fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
-            
+
           <PaymentSummary paymentSummary={paymentSummary} />
         </div>
       </div>

@@ -1,23 +1,10 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export default function ProductDetails({ product, fetchCartQuantity }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+export default function ProductDetails({ product, fetchCartQuantity, isLoggedIn }) {
   const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function checkAuth() {
-      try {
-        await axios.get('/api/users/profile', { withCredentials: true });
-        setIsLoggedIn(true);
-      } catch {
-        setIsLoggedIn(false);
-      }
-    }
-    checkAuth();
-  }, []);
 
   async function addToCart() {
     if (!isLoggedIn) {

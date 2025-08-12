@@ -1,31 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import './Header.css';
 
-export default function Header({ cartQuantity }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    async function checkAuth() {
-      try {
-        await axios.get('/api/users/profile', { withCredentials: true });
-        setIsLoggedIn(true);
-      } catch {
-        setIsLoggedIn(false);
-      }
-    }
-    checkAuth();
-  }, []);
-
-  function handleLogin (e) {
-    if (!isLoggedIn) {
-      e.preventDefault(); // Stop the normal <Link> navigation
-      navigate('/login');
-    }
-  }
+export default function Header({ cartQuantity, isLoggedIn }) {
+  
 
   return (
     <div className="header">
@@ -43,10 +21,10 @@ export default function Header({ cartQuantity }) {
         </button>
       </div>
       <div className="right-section">
-        <Link to="/orders" onClick={handleLogin}>
+        <Link to={isLoggedIn ? '/orders' : '/login'}>
           <span>Orders</span>
         </Link>
-        <Link to="/checkout" onClick={handleLogin}>
+        <Link to={isLoggedIn ? '/checkout' : '/login'}>
           <img className="cart-icon" src="/images/icons/cart-icon.png" alt="Cart" />
           <div className="cart-quantity">{ cartQuantity }</div>
           <div className="cart-text">Cart</div>

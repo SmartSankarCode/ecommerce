@@ -11,27 +11,53 @@ import CheckoutPage from './pages/Checkoutpage/CheckoutPage';
 import './App.css'
 
 function App() {
-  const [cartQuantity, setCartQuantity] = useState(0)
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null)
+
   // i setup cartqunatity in paymentsummary api in my backend
   async function fetchCartQuantity() {
-    const res = await axios.get('/api/cart/summary');
-    setCartQuantity(res.data.cartQuantity || 0);
+    try {
+      const res = await axios.get('/api/cart/summary', { withCredentials: true });
+      setCartQuantity(res.data.cartQuantity || '');
+    } catch  {
+      setCartQuantity(''); // Reset if unauthorized
+    }
+  }
+
+  async function checkAuth() {
+    try {
+      const res = await axios.get('/api/users/profile', { withCredentials: true });
+      setIsLoggedIn(true);
+      setUser(res.data);
+    } catch {
+      setIsLoggedIn(false);
+      setUser(null);
+    }
   }
 
   useEffect(() => {
-
-    fetchCartQuantity();
-  }, []);
+    if (isLoggedIn) {
+      checkAuth();
+      fetchCartQuantity();
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage cartQuantity={cartQuantity} />} />
-        <Route path="/category/:categoryName" element={<CategoryPage cartQuantity={cartQuantity} />} />
-        <Route path="/product/:id" element={<ProductPage cartQuantity={cartQuantity} fetchCartQuantity={fetchCartQuantity}/>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/checkout" element={<CheckoutPage cartQuantity={cartQuantity} fetchCartQuantity={fetchCartQuantity} />} />
+        <Route path="/" element={<HomePage cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />} />
+        <Route path="/category/:categoryName" element={<CategoryPage cartQuantity={cartQuantity}
+          isLoggedIn={isLoggedIn} />} />
+        <Route path="/product/:id" element={<ProductPage cartQuantity={cartQuantity}
+          isLoggedIn={isLoggedIn} fetchCartQuantity={fetchCartQuantity} />} />
+        <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}
+          fetchCartQuantity={fetchCartQuantity} />} />
+        <Route path="/register" element={<RegisterPage setIsLoggedIn={setIsLoggedIn}
+          fetchCartQuantity={fetchCartQuantity} />} />
+        <Route path="/checkout" element={<CheckoutPage cartQuantity={cartQuantity}
+          fetchCartQuantity={fetchCartQuantity} user={user} setCartQuantity={setCartQuantity} 
+          isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
       </Routes>
     </>
   )
