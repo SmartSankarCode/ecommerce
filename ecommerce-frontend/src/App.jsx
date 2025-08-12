@@ -7,6 +7,7 @@ import ProductPage from './pages/productdetailspage/ProductPage';
 import LoginPage from './pages/authpage/LoginPage';
 import RegisterPage from './pages/authpage/RegisterPage';
 import CheckoutPage from './pages/Checkoutpage/CheckoutPage';
+import OrdersPage from './pages/orderspage/OrdersPage';
 
 import './App.css'
 
@@ -20,7 +21,7 @@ function App() {
     try {
       const res = await axios.get('/api/cart/summary', { withCredentials: true });
       setCartQuantity(res.data.cartQuantity || '');
-    } catch  {
+    } catch {
       setCartQuantity(''); // Reset if unauthorized
     }
   }
@@ -56,8 +57,9 @@ function App() {
         <Route path="/register" element={<RegisterPage setIsLoggedIn={setIsLoggedIn}
           fetchCartQuantity={fetchCartQuantity} />} />
         <Route path="/checkout" element={<CheckoutPage cartQuantity={cartQuantity}
-          fetchCartQuantity={fetchCartQuantity} user={user} setCartQuantity={setCartQuantity} 
+          fetchCartQuantity={fetchCartQuantity} user={user} setCartQuantity={setCartQuantity}
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/orders' element={<OrdersPage />} />
       </Routes>
     </>
   )
