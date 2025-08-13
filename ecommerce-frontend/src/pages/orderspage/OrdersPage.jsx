@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs from 'dayjs';
 import Header from '../../components/Header';
+import OrderItems from "./OrderItems";
 
 import "./OrdersPage.css";
-import { Fragment } from "react";
 
-export default function OrdersPage({ cartQuantity, isLoggedIn }) {
+export default function OrdersPage({ cartQuantity, isLoggedIn, fetchCartQuantity }) {
 
   const [orders, setOrders] = useState([]);
+
   const navigate = useNavigate();
 
   async function fetchOrders() {
@@ -59,46 +60,11 @@ export default function OrdersPage({ cartQuantity, isLoggedIn }) {
 
                 {/* Order Items */}
                 <div className="order-details-grid">
-                {order.items.map(item => {
-                  return (
-                    <Fragment key={item._id}>
-                      <div className="product-image-container"  >
-                        <img
-                          src={`http://localhost:3000${item.productId.image}`}
-                          alt={item.productId.name}
-                        />
-                      </div>
-                      <div className="order-details" >
-                        <div className="order-product-details">
-                          <div className="product-name">
-                            {item.productId.name}
-                          </div>
-                          <div className="product-delivery-date">
-                            Arriving on: {dayjs(item.estimatedDeliveryTime).format('MMMM D')}
-                          </div>
-                          <div className="product-quantity">
-                            Quantity: {item.quantity}
-                          </div>
-                          <button className="buy-again-button ">
-                            <img
-                              className="buy-again-icon"
-                              src="images/icons/buy-again.png"
-                              alt="Buy again"
-                            />
-                            <span className="buy-again-message">Add to Cart</span>
-                          </button>
-                        </div>
-                        <div className="product-actions">
-                          <a href="tracking.html">
-                            <button className="track-package-button ">
-                              Track package
-                            </button>
-                          </a>
-                        </div>
-                      </div>
-                    </Fragment>
-                  )
-                })}
+                  {order.items.map(item => {
+                    return (
+                      <OrderItems item={item} fetchCartQuantity={fetchCartQuantity} key={item._id}/> 
+                    )
+                  })}
                 </div>
               </div>
             )
