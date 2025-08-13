@@ -95,7 +95,8 @@ export default function CheckoutPage({
           <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
             fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
 
-          <PaymentSummary paymentSummary={paymentSummary} />
+          <PaymentSummary paymentSummary={paymentSummary}
+           fetchCartQuantity={fetchCartQuantity}/>
         </div>
       </div>
     </>

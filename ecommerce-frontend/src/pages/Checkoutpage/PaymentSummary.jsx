@@ -1,5 +1,14 @@
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-export default function PaymentSummary({ paymentSummary }) {
+export default function PaymentSummary({ paymentSummary,fetchCartQuantity }) {
+  const navigate = useNavigate();
+
+  async function placeOrder() {
+    await axios.post('/api/orders/place', {}, { withCredentials: true });
+    await fetchCartQuantity();
+    navigate('/orders');
+  }
 
   return (
     <div className="payment-summary">
@@ -44,7 +53,8 @@ export default function PaymentSummary({ paymentSummary }) {
             </div>
           </div>
 
-          <button className="place-order-button ">Place your order</button>
+          <button className="place-order-button "
+            onClick={placeOrder}>Place your order</button>
         </>
       )}
 

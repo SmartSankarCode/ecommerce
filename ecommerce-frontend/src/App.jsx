@@ -59,7 +59,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage cartQuantity={cartQuantity}
           fetchCartQuantity={fetchCartQuantity} user={user} setCartQuantity={setCartQuantity}
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path='/orders' element={<OrdersPage />} />
+        <Route path='/orders' element={<OrdersPage cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />} />
       </Routes>
     </>
   )
