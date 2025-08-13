@@ -2,10 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { Fragment } from "react";
 import dayjs from 'dayjs';
+import { Link } from "react-router-dom";
+
 
 //  i seperate this into component so that addtocart msg show
 //  to individual item
-export default function OrderItems({ item, fetchCartQuantity }) {
+export default function OrderItems({ item, fetchCartQuantity, orderId}) {
   const [showMessage, setShowMessage] = useState(false);
 
   async function addToCart(productId) {
@@ -58,11 +60,11 @@ export default function OrderItems({ item, fetchCartQuantity }) {
           </button>
         </div>
         <div className="product-actions">
-          <a href="tracking.html">
+          <Link to={`/tracking/${orderId}/${item._id}`}>
             <button className="track-package-button ">
               Track package
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </Fragment>

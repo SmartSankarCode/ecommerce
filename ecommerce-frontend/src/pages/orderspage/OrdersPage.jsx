@@ -62,7 +62,8 @@ export default function OrdersPage({ cartQuantity, isLoggedIn, fetchCartQuantity
                 <div className="order-details-grid">
                   {order.items.map(item => {
                     return (
-                      <OrderItems item={item} fetchCartQuantity={fetchCartQuantity} key={item._id}/> 
+                      <OrderItems item={item} orderId={order._id}
+                        fetchCartQuantity={fetchCartQuantity} key={item._id} />
                     )
                   })}
                 </div>

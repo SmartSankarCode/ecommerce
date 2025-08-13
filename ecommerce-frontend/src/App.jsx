@@ -8,6 +8,7 @@ import LoginPage from './pages/authpage/LoginPage';
 import RegisterPage from './pages/authpage/RegisterPage';
 import CheckoutPage from './pages/Checkoutpage/CheckoutPage';
 import OrdersPage from './pages/orderspage/OrdersPage';
+import TrackingPage from './pages/trackingpage/TrackingPage';
 
 import './App.css'
 
@@ -61,6 +62,8 @@ function App() {
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/orders' element={<OrdersPage cartQuantity={cartQuantity} isLoggedIn={isLoggedIn}
           fetchCartQuantity={fetchCartQuantity} />} />
+        <Route path="/tracking/:orderId/:itemId" element={<TrackingPage
+          cartQuantity={cartQuantity} />} />
       </Routes>
     </>
   )
