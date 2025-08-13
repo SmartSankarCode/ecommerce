@@ -1,7 +1,7 @@
 .orders-page {
   max-width: 60%;
   padding: 0px 20px;
-  margin: 90px auto;
+  margin: 30px auto;
 }
 
 .orders-page .page-title {
@@ -43,6 +43,7 @@
 
 .order-header-right-section {
   flex-shrink: 1;
+  margin-right: 50px;
 }
 
 /* orders  */
@@ -55,15 +56,15 @@
 
   display: grid;
   grid-template-columns: 130px 1fr;
-  column-gap: 35px;
+  column-gap: 40px;
   row-gap: 60px;
   align-items: center;
 }
 
 .order-details {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 /* item details  */
@@ -72,8 +73,8 @@
 }
 
 .product-image-container img {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 110px;
+  max-height: 110px;
 }
 
 .product-name {
@@ -120,8 +121,43 @@
 }
 
 /* Reponsive  */
+@media screen and (max-width: 1300px) {
+  .orders-page {
+    max-width: 70%;
+  }
 
-@media (max-width: 675px) {
+  .track-package-button {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .order-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-image-container img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .track-package-button {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .orders-page {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .orders-page {
+    max-width: 100%;
+  }
+
   .order-header {
     flex-direction: column;
     align-items: start;
@@ -147,103 +183,5 @@
   .order-header-right-section {
     display: grid;
     grid-template-columns: auto 1fr;
-  }
-}
-
-/* items  */
-
-@media (max-width:1000px) {
-  .orders-page {
-    max-width: 90%;
-  }
-}
-
-@media (max-width:800px) {
-  .orders-page {
-    max-width: 100%;
-  }
-
-  .order-details {
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  .order-product-details {
-    padding-top: 30px;
-  }
-}
-
-@media (max-width:600px) {
-  .order-details-grid {
-    gap: 5px;
-    padding: 10px 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .order-details-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-@media (min-width: 900px){
-  .product-image-container img {
-  max-width: 110px;
-  max-height: 110px;
-}
-
-}
-
-@media (max-width: 900px) {
-  .buy-again-button {
-    margin-bottom: 10px;
-  }
-
-  .product-actions {
-    margin-bottom: 30px;
-  }
-
-  .track-package-button {
-    width: 140px;
-  }
-}
-
-@media (max-width: 700px) {
-  .buy-again-button {
-    width: 120px;
-    margin-bottom: 10px;
-  }
-
-  .track-package-button {
-    width: 120px;
-  }
-}
-
-@media (max-width: 400px) {
-  .product-image-container {
-    margin-bottom: 25px;
-  }
-
-  .orders-page .product-name {
-    margin-bottom: 10px;
-  }
-
-  .product-quantity {
-    margin-bottom: 15px;
-  }
-
-  .buy-again-button {
-    width: 120px;
-    margin-bottom: 15px;
-  }
-
-  .product-actions {
-    margin-bottom: 70px;
-  }
-
-  .track-package-button {
-    width: 100%;
-    padding: 12px;
   }
 }

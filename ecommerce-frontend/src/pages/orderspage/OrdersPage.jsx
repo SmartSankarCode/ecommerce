@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import Header from '../../components/Header';
 
 import "./OrdersPage.css";
+import { Fragment } from "react";
 
 export default function OrdersPage({ cartQuantity, isLoggedIn }) {
 
@@ -57,16 +58,17 @@ export default function OrdersPage({ cartQuantity, isLoggedIn }) {
                 </div>
 
                 {/* Order Items */}
+                <div className="order-details-grid">
                 {order.items.map(item => {
                   return (
-                    <div className="order-details-grid" key={item._id}>
-                      <div className="product-image-container">
+                    <Fragment key={item._id}>
+                      <div className="product-image-container"  >
                         <img
                           src={`http://localhost:3000${item.productId.image}`}
                           alt={item.productId.name}
                         />
                       </div>
-                      <div className="order-details">
+                      <div className="order-details" >
                         <div className="order-product-details">
                           <div className="product-name">
                             {item.productId.name}
@@ -94,9 +96,10 @@ export default function OrdersPage({ cartQuantity, isLoggedIn }) {
                           </a>
                         </div>
                       </div>
-                    </div>
+                    </Fragment>
                   )
                 })}
+                </div>
               </div>
             )
           })}
