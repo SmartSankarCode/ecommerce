@@ -20,7 +20,7 @@ const orderItemSchema = new mongoose.Schema({
     required: true
   },
   estimatedDeliveryTime: {
-    type: String,
+    type: Number,
     required: true
   }
 });
