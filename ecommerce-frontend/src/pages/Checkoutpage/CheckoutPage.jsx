@@ -7,16 +7,16 @@ import PaymentSummary from './PaymentSummary';
 
 import "./CheckoutPage.css";
 
-export default function CheckoutPage({ 
-  cartQuantity, 
+export default function CheckoutPage({
+  cartQuantity,
   setCartQuantity,
-  fetchCartQuantity, 
-  isLoggedIn, 
+  fetchCartQuantity,
+  isLoggedIn,
   setIsLoggedIn,
-  user, 
+  user,
 }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(null);
   const [paymentSummary, setPaymentSummary] = useState(null);
   // const [user, setUser] = useState(null);
   const [showLogoutOption, setShowLogoutOption] = useState(false);
@@ -73,7 +73,8 @@ export default function CheckoutPage({
           </div>
 
           <div className="checkout-header-middle-section">
-            Checkout (<Link className="return-to-home-link" to="/">{cartQuantity} items</Link>)
+            Checkout (<Link className="return-to-home-link" to="/">
+              {cartQuantity.length === 0 ? 0 : cartQuantity} items</Link>)
           </div>
 
           <div className="checkout-header-right-section">
@@ -88,17 +89,29 @@ export default function CheckoutPage({
         </div>
       </div>
 
-      <div className="checkout-page">
-        <div className="page-title">Review items</div>
+      {cartItems?.length > 0 ? (
+        <div className="checkout-page">
+          <div className="page-title">Review items</div>
 
-        <div className="checkout-grid">
-          <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
-            fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
+          <div className="checkout-grid">
+            <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
+              fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
 
-          <PaymentSummary paymentSummary={paymentSummary}
-           fetchCartQuantity={fetchCartQuantity}/>
+            <PaymentSummary paymentSummary={paymentSummary}
+              fetchCartQuantity={fetchCartQuantity} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {cartItems && <div className="empty-cart">
+            <img src="/images/empty-cart.png" alt="Empty Cart" />
+            <p>Your cart is empty</p>
+            <Link to="/" className="browse-products-link">
+              Browse Products
+            </Link>
+          </div>}
+        </>
+      )}
     </>
   );
 }

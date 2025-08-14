@@ -13,7 +13,7 @@ import TrackingPage from './pages/trackingpage/TrackingPage';
 import './App.css'
 
 function App() {
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null)
 

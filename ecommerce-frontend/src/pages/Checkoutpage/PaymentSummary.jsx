@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function PaymentSummary({ paymentSummary,fetchCartQuantity }) {
+export default function PaymentSummary({ paymentSummary, fetchCartQuantity }) {
   const navigate = useNavigate();
 
   async function placeOrder() {
@@ -11,10 +11,10 @@ export default function PaymentSummary({ paymentSummary,fetchCartQuantity }) {
   }
 
   return (
-    <div className="payment-summary">
-      <div className="payment-summary-title">Payment Summary</div>
+    <>
       {paymentSummary && (
-        <>
+        <div className="payment-summary">
+          <div className="payment-summary-title">Payment Summary</div>
           <div className="payment-summary-row">
             <div>
               Price ({paymentSummary.cartQuantity} Items ):
@@ -55,9 +55,8 @@ export default function PaymentSummary({ paymentSummary,fetchCartQuantity }) {
 
           <button className="place-order-button "
             onClick={placeOrder}>Place your order</button>
-        </>
+        </div>
       )}
-
-    </div>
+    </>
   )
 }

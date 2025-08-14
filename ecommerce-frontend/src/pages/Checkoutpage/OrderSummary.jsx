@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import axios from 'axios';
 import DeliveryOptions from './DeliveryOptions';
+import { Link } from 'react-router-dom';
 
 
 export default function orderSummary({ cartItems, deliveryOptions,
@@ -40,8 +41,13 @@ export default function orderSummary({ cartItems, deliveryOptions,
               </div>
 
               <div className="cart-item-details-grid">
-                <img className="product-image" src={`http://localhost:3000${item.product.image}`} alt="Product" />
-
+                <Link to={`/product/${item.productId}`}>
+                  <img
+                    className="product-image"
+                    src={`http://localhost:3000${item.product.image}`}
+                    alt={item.product.name}
+                  />
+                </Link>
                 <div className="cart-item-details">
                   <div className="product-name">{item.product.name}</div>
                   <div className="product-price">₹{item.product.priceRupees}</div>
@@ -79,10 +85,12 @@ export default function orderSummary({ cartItems, deliveryOptions,
                     </span>
                   </div>
                 </div>
-                <DeliveryOptions fetchCheckoutData={fetchCheckoutData}
-                deliveryOptions={deliveryOptions} 
-                item={item}
-                />
+                <div className="delivery-options">
+                  <DeliveryOptions fetchCheckoutData={fetchCheckoutData}
+                    deliveryOptions={deliveryOptions}
+                    item={item}
+                  />
+                </div>
               </div>
             </div>
           )
