@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import axios from "axios";
-import { Fragment } from "react";
 import dayjs from 'dayjs';
 import { Link } from "react-router-dom";
 
@@ -9,6 +8,12 @@ import { Link } from "react-router-dom";
 //  to individual item
 export default function OrderItems({ item, fetchCartQuantity, orderId}) {
   const [showMessage, setShowMessage] = useState(false);
+
+  const today = dayjs();
+  const deliveryTime = dayjs(item.estimatedDeliveryTime);
+  const deliveryMessage = today.isBefore(deliveryTime)
+    ? "Arriving on"
+    : "Delivered on";
 
   async function addToCart(productId) {
     await axios.post('/api/cart', {
@@ -27,10 +32,12 @@ export default function OrderItems({ item, fetchCartQuantity, orderId}) {
   return (
     <Fragment >
       <div className="product-image-container"  >
-        <img
-          src={`http://localhost:3000${item.productId.image}`}
-          alt={item.productId.name}
-        />
+        <Link to={`/product/${item.productId._id}`}>
+          <img
+            src={`http://localhost:3000${item.productId.image}`}
+            alt={item.productId.name}
+          />
+        </Link>
       </div>
       <div className="order-details" >
         <div className="order-product-details">
@@ -38,7 +45,7 @@ export default function OrderItems({ item, fetchCartQuantity, orderId}) {
             {item.productId.name}
           </div>
           <div className="product-delivery-date">
-            Arriving on: {dayjs(item.estimatedDeliveryTime).format('MMMM D')}
+            {deliveryMessage}: {dayjs(item.estimatedDeliveryTime).format('MMMM D')}
           </div>
           <div className="product-quantity">
             Quantity: {item.quantity}

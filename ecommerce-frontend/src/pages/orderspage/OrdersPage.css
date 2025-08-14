@@ -185,3 +185,43 @@
     grid-template-columns: auto 1fr;
   }
 }
+
+/* // empty orders  */
+.no-orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.no-orders img {
+  width: 220px;
+  max-width: 90%;
+  margin-bottom: 20px;
+}
+
+.no-orders h2 {
+  font-size: 22px;
+  color: rgb(51, 51, 51);
+  margin-bottom: 10px;
+}
+
+.no-orders p {
+  font-size: 16px;
+  color: rgb(119, 119, 119);
+  margin-bottom: 20px;
+}
+
+.browse-products-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(26, 115, 232);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
