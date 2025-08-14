@@ -63,7 +63,7 @@ function App() {
         <Route path='/orders' element={<OrdersPage cartQuantity={cartQuantity} isLoggedIn={isLoggedIn}
           fetchCartQuantity={fetchCartQuantity} />} />
         <Route path="/tracking/:orderId/:itemId" element={<TrackingPage
-          cartQuantity={cartQuantity} />} />
+          cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />} />
       </Routes>
     </>
   )

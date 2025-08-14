@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -7,12 +7,22 @@ import Header from '../../components/Header';
 import './TrackingPage.css';
 
 
-export default function TrackingPage({ cartQuantity }) {
+export default function TrackingPage({ cartQuantity, isLoggedIn }) {
   const { orderId, itemId } = useParams();
   const [item, setItem] = useState(null);
+  const [progressPercent, setProgressPercent] = useState(0);
+  // const [currentStage, setCurrentStage] = useState('');
+  const [deliveredMessage, setDeliveredMessage] = useState('');
+  const navigate = useNavigate();
+
 
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
     async function fetchOrderData() {
       const res = await axios.get('/api/orders/my-orders', {
         withCredentials: true
@@ -30,14 +40,36 @@ export default function TrackingPage({ cartQuantity }) {
 
       setItem(requiredItem);
 
+      const today = dayjs();
+      const orderTime = dayjs(requiredOrder.orderedAt);
+      const deliveryTime = dayjs(requiredItem.estimatedDeliveryTime);
+
+      const percentProgress = ((today - orderTime) / (deliveryTime - orderTime)) * 100;
+      setTimeout(() => {
+        setProgressPercent(percentProgress);
+      }, 100); // smooth transition
+
+
+      const deliveredMessage = today < deliveryTime ? 'Arriving on' : 'Delivered on';
+      setDeliveredMessage(deliveredMessage);
+      /*
+      if (progressPercent < 50) {
+        setCurrentStage('Preparing');
+      } else if (progressPercent < 100) {
+        setCurrentStage('Shipped');
+      } else {
+        setCurrentStage('Delivered');
+      }
+      */
+
     }
 
     fetchOrderData();
-  }, [])
+  }, [orderId, itemId])
 
   return (
     <>
-      <Header cartQuantity={cartQuantity} />
+      <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
       {/* getting item details take more time than actual
       bcz of matching technique used above */}
       {item && (
@@ -46,7 +78,7 @@ export default function TrackingPage({ cartQuantity }) {
             <div className="order-tracking">
 
               <div className="delivery-date">
-                Arriving on: {dayjs(item.estimatedDeliveryTime).format('MMMM D')}
+                {deliveredMessage} {dayjs(item.estimatedDeliveryTime).format('MMMM D')}
               </div>
 
               <div className="product-info">
@@ -64,13 +96,17 @@ export default function TrackingPage({ cartQuantity }) {
               />
 
               <div className="progress-labels-container">
-                <div className="progress-label">Preparing</div>
-                <div className="progress-label current-status">Shipped</div>
-                <div className="progress-label">Delivered</div>
+                <div className={`progress-label ${progressPercent < 50
+                  ? 'current-status' : ''}`}>Preparing</div>
+                <div className={`progress-label ${progressPercent >= 50 && progressPercent < 100
+                  ? 'current-status' : ''}`}>Shipped</div>
+                <div className={`progress-label ${progressPercent > 100
+                  ? 'current-status' : ''}`}>Delivered</div>
               </div>
 
               <div className="progress-bar-container">
-                <div className="progress-bar"></div>
+                <div className="progress-bar"
+                  style={{ width: `${progressPercent}%` }}></div>
               </div>
             </div>
           </div>
