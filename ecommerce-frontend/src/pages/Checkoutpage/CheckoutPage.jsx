@@ -66,9 +66,9 @@ export default function CheckoutPage({
         <div className="header-content">
           <div className="checkout-header-left-section">
             <Link to="/">
-              <img className="checkout-logo" src="/images/S-logo.png" alt="S Logo" />
-              <img className="checkout-ecommerce-logo" src="/images/ecommerce-logo.png" alt="Ecommerce Logo" />
-              <img className="checkout-ecommerce-logo-small" src="/images/ecommerce-logo-small.png" alt="Ecommerce Logo Small" />
+              <img className="checkout-logo" src="/frontend-images/S-logo.png" alt="S Logo" />
+              <img className="checkout-ecommerce-logo" src="/frontend-images/ecommerce-logo.png" alt="Ecommerce Logo" />
+              <img className="checkout-ecommerce-logo-small" src="/frontend-images/ecommerce-logo-small.png" alt="Ecommerce Logo Small" />
             </Link>
           </div>
 
@@ -81,7 +81,7 @@ export default function CheckoutPage({
             <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
               {user?.name || ""}</span>
             <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
-              src="/images/icons/user-icon.png" alt="User Icon" />
+              src="/frontend-images/icons/user-icon.png" alt="User Icon" />
             {showLogoutOption && user && <span
               className="user-logout"
               onClick={() => { logout() }}>Logout</span>}
@@ -104,7 +104,7 @@ export default function CheckoutPage({
       ) : (
         <>
           {cartItems && <div className="empty-cart">
-            <img src="/images/empty-cart.png" alt="Empty Cart" />
+            <img src="/frontend-images/empty-cart.png" alt="Empty Cart" />
             <p>Your cart is empty</p>
             <Link to="/" className="browse-products-link">
               Browse Products

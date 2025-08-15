@@ -91,7 +91,7 @@ export default function TrackingPage({ cartQuantity, isLoggedIn }) {
 
               <img
                 className="product-image"
-                src={`http://localhost:3000${item.productId.image}`}
+                src={item.productId.image}
                 alt={item.productId.name}
               />
 

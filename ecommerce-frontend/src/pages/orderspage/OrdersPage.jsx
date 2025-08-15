@@ -78,7 +78,7 @@ export default function OrdersPage({ cartQuantity, isLoggedIn, fetchCartQuantity
         <>
           {orders && (
             <div className="no-orders">
-              <img src="/images/no-orders.png" alt="No Orders" />
+              <img src="/frontend-images/no-orders.png" alt="No Orders" />
               <h2>You have no orders yet</h2>
               <p>When you place an order, you’ll see it here.</p>
               <Link to="/" className="browse-products-link">

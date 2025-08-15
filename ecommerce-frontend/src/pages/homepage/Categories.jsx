@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 // Add as many categories in future 
 const categoryData = [
-  { name: 'Mens', path: 'mens', image: '/images/banners/Mens banner.jpg' },
-  { name: 'Womens', path: 'womens', image: '/images/banners/Womens banner.jpg' },
-  { name: 'Footwear', path: 'footwear', image: '/images/banners/Footwear banner.jpg' },
-  { name: 'Home & Kitchen', path: 'home-kitchen', image: '/images/banners/Home-Kitchen banner.jpg' },
+  { name: 'Mens', path: 'mens', image: '/frontend-images/banners/Mens banner.jpg' },
+  { name: 'Womens', path: 'womens', image: '/frontend-images/banners/Womens banner.jpg' },
+  { name: 'Footwear', path: 'footwear', image: '/frontend-images/banners/Footwear banner.jpg' },
+  { name: 'Home & Kitchen', path: 'home-kitchen', image: '/frontend-images/banners/Home-Kitchen banner.jpg' },
 ];
 
 export default function Categories() {

@@ -44,7 +44,7 @@ export default function orderSummary({ cartItems, deliveryOptions,
                 <Link to={`/product/${item.productId}`}>
                   <img
                     className="product-image"
-                    src={`http://localhost:3000${item.product.image}`}
+                    src={item.product.image}
                     alt={item.product.name}
                   />
                 </Link>
@@ -80,7 +80,7 @@ export default function orderSummary({ cartItems, deliveryOptions,
                     <span className="delete-item"
                       onClick={() => removeCartItem(item.productId)}>
                       <img className="delete-icon"
-                        src="/images/icons/delete-icon.png" alt="delete-icon" />
+                        src="/frontend-images/icons/delete-icon.png" alt="delete-icon" />
                       <span>Remove</span>
                     </span>
                   </div>

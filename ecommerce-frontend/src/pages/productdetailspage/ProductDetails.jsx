@@ -36,7 +36,7 @@ export default function ProductDetails({ product, fetchCartQuantity, isLoggedIn 
     <div className="product-details">
       <img
         className="product-details-image"
-        src={`http://localhost:3000${product.image}`}
+        src={product.image}
         alt={product.name}
       />
 
@@ -53,7 +53,7 @@ export default function ProductDetails({ product, fetchCartQuantity, isLoggedIn 
         <p className="rating">⭐ {product.rating?.stars} ({product.rating?.count} ratings)</p>
 
         <div className={`success-message ${showMessage ? 'visible' : ''}`}>
-          <img className="checkmark-icon" src="/images/icons/checkmark.png" alt="checkmark-img" />
+          <img className="checkmark-icon" src="/frontend-images/icons/checkmark.png" alt="checkmark-img" />
           <span>Added</span>
         </div>
 

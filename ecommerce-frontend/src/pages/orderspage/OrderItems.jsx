@@ -56,8 +56,8 @@ export default function OrderItems({ item, fetchCartQuantity, orderId}) {
               className="buy-again-icon"
               src={
                 showMessage
-                  ? "images/icons/checkmark-white.png"
-                  : "images/icons/buy-again.png"
+                  ? "/frontend-images/icons/checkmark-white.png"
+                  : "/frontend-images/icons/buy-again.png"
               }
               alt={showMessage ? "Item Added" : "Buy again"}
             />

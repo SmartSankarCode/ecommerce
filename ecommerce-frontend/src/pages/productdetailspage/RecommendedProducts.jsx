@@ -11,7 +11,7 @@ export default function RecommendedProducts({ products }) {
             className="recommended-card"
             key={product._id}
           >
-            <img src={`http://localhost:3000${product.image}`} alt={product.name} />
+            <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>₹{product.priceRupees}</p>
           </Link>

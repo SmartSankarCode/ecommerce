@@ -11,7 +11,7 @@ export default function ProductReviews({ rating }) {
       <h2>Ratings & Reviews</h2>
       <div className="review-rating">
         <img
-          src={`/images/ratings/rating-${rating.stars * 10}.png`}
+          src={`/frontend-images/ratings/rating-${rating.stars * 10}.png`}
           alt="rating image"
         />
         <span>{rating.count}</span>

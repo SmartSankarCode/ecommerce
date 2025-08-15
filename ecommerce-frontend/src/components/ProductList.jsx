@@ -11,7 +11,7 @@ export default function ProductList({ products }) {
           key={product._id}
         >
           <img
-            src={`http://localhost:3000${product.image}`}
+            src={product.image}
             alt={product.name}
           />
           <h3>{product.name}</h3>
