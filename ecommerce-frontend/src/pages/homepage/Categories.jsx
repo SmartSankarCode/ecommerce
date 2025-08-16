@@ -14,7 +14,8 @@ export default function Categories() {
       {categoryData.map((category) => (
         <Link
           key={category.path}
-          to={`/category/${category.path}`}
+          // to={`/category/${category.path}`} another way 
+          to={`/category/?mainCategory=${category.path}`}
           className="category-box"
         >
           <img

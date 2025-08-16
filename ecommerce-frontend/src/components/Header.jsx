@@ -1,9 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
 import './Header.css';
 
 export default function Header({ cartQuantity, isLoggedIn }) {
-  
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const searchText = searchParams.get('search');
+
+  const [search, setSearch] = useState(searchText || '');
+
+  function searchInput(event) {
+    setSearch(event.target.value);
+  }
+
+  function searchProducts() {
+    if (!search.trim()) {
+      return; // Don't search if empty or only spaces
+    }
+    // console.log(search)
+    // navigate(`/search/${search}`) another way
+    navigate(`/category/?search=${search}`);
+  }
+
+  function searchKeyDown(event) {
+    if (event.key === 'Enter') {
+      searchProducts();
+    }
+  }
 
   return (
     <div className="header">
@@ -15,8 +40,11 @@ export default function Header({ cartQuantity, isLoggedIn }) {
         </Link>
       </div>
       <div className="middle-section">
-        <input className="search-input" type="text" placeholder="Search products..." />
-        <button className="search-button">
+        <input className="search-input" type="text"
+          placeholder="Search products..." onKeyDown={searchKeyDown}
+          value={search} onChange={searchInput} />
+        <button className="search-button"
+          onClick={searchProducts}>
           <img className="search-icon" src="/frontend-images/icons/search-icon.png" alt="Search" />
         </button>
       </div>
@@ -26,7 +54,7 @@ export default function Header({ cartQuantity, isLoggedIn }) {
         </Link>
         <Link to={isLoggedIn ? '/checkout' : '/login'}>
           <img className="cart-icon" src="/frontend-images/icons/cart-icon.png" alt="Cart" />
-          <div className="cart-quantity">{ cartQuantity }</div>
+          <div className="cart-quantity">{cartQuantity}</div>
           <div className="cart-text">Cart</div>
         </Link>
       </div>

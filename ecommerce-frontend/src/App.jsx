@@ -49,8 +49,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />} />
-        <Route path="/category/:categoryName" element={<CategoryPage cartQuantity={cartQuantity}
+        <Route path="/category" element={<CategoryPage cartQuantity={cartQuantity}
           isLoggedIn={isLoggedIn} />} />
+        {/* <Route path="/search/:search" element={<CategoryPage cartQuantity={cartQuantity}
+          isLoggedIn={isLoggedIn} />} />  another way*/}
         <Route path="/product/:id" element={<ProductPage cartQuantity={cartQuantity}
           isLoggedIn={isLoggedIn} fetchCartQuantity={fetchCartQuantity} />} />
         <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}

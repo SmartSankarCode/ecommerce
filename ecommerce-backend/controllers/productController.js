@@ -19,7 +19,8 @@ const getAllProducts = async (req, res) => {
   if (isTrending === "true") query.isTrending = true;
 
   if (keyword) {
-    query.keywords = { $in: [keyword.toLowerCase()] };
+    const keywordsArray = keyword.toLowerCase().split(' ');
+    query.keywords = { $all: keywordsArray };
   }
 
   if (recommendationsFor) {
