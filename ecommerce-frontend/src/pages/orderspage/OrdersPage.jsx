@@ -22,13 +22,15 @@ export default function OrdersPage({ cartQuantity, isLoggedIn, fetchCartQuantity
     // console.log(response.data);
   }
   useEffect(() => {
+    if (isLoggedIn === null) return; 
+
     if (!isLoggedIn) {
       navigate("/login");
       return;
     }
 
     fetchOrders();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <>

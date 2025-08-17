@@ -6,7 +6,10 @@ import Header from '../../components/Header';
 
 import './AuthPage.css';
 
-export default function LoginPage({setIsLoggedIn, fetchCartQuantity}) {
+export default function LoginPage({setIsLoggedIn, 
+  fetchCartQuantity, 
+  checkAuth
+}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -27,6 +30,8 @@ export default function LoginPage({setIsLoggedIn, fetchCartQuantity}) {
       });
 
       setIsLoggedIn(true);
+
+      await checkAuth();
       
       await fetchCartQuantity();
 

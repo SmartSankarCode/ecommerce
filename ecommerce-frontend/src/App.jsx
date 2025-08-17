@@ -14,24 +14,21 @@ import './App.css'
 
 function App() {
   const [cartQuantity, setCartQuantity] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [user, setUser] = useState(null) // you can pass this instead of isloggedin
 
   // i setup cartqunatity in paymentsummary api in my backend
   async function fetchCartQuantity() {
-    try {
-      const res = await axios.get('/api/cart/summary', { withCredentials: true });
-      setCartQuantity(res.data.cartQuantity || '');
-    } catch {
-      setCartQuantity(''); // Reset if unauthorized
-    }
+    const res = await axios.get('/api/cart/summary', { withCredentials: true });
+    setCartQuantity(res.data.cartQuantity || '');
   }
 
   async function checkAuth() {
     try {
       const res = await axios.get('/api/users/profile', { withCredentials: true });
-      setIsLoggedIn(true);
       setUser(res.data);
+      setIsLoggedIn(true);
+      fetchCartQuantity();
     } catch {
       setIsLoggedIn(false);
       setUser(null);
@@ -39,11 +36,8 @@ function App() {
   }
 
   useEffect(() => {
-    if (isLoggedIn) {
-      checkAuth();
-      fetchCartQuantity();
-    }
-  }, [isLoggedIn]);
+    checkAuth();
+  }, []);
 
   return (
     <>
@@ -56,9 +50,9 @@ function App() {
         <Route path="/product/:id" element={<ProductPage cartQuantity={cartQuantity}
           isLoggedIn={isLoggedIn} fetchCartQuantity={fetchCartQuantity} />} />
         <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}
-          fetchCartQuantity={fetchCartQuantity} />} />
+          fetchCartQuantity={fetchCartQuantity} checkAuth={checkAuth} />} />
         <Route path="/register" element={<RegisterPage setIsLoggedIn={setIsLoggedIn}
-          fetchCartQuantity={fetchCartQuantity} />} />
+          fetchCartQuantity={fetchCartQuantity} checkAuth={checkAuth} />} />
         <Route path="/checkout" element={<CheckoutPage cartQuantity={cartQuantity}
           fetchCartQuantity={fetchCartQuantity} user={user} setCartQuantity={setCartQuantity}
           isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />

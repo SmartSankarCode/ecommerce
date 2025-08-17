@@ -6,7 +6,10 @@ import Header from '../../components/Header';
 
 import './AuthPage.css';
 
-export default function RegisterPage({setIsLoggedIn, fetchCartQuantity}) {
+export default function RegisterPage({setIsLoggedIn, 
+  fetchCartQuantity, 
+  checkAuth
+}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,6 +48,8 @@ export default function RegisterPage({setIsLoggedIn, fetchCartQuantity}) {
       // console.log('Logged in user after register:', userData);
       
       setIsLoggedIn(true);
+
+      await checkAuth();
 
       await fetchCartQuantity();
       
