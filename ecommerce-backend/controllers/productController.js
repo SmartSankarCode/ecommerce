@@ -16,7 +16,16 @@ const getAllProducts = async (req, res) => {
   if (mainCategory) query.mainCategory = mainCategory.toLowerCase();
   if (subCategory) query.subCategory = subCategory.toLowerCase(); // may use or not
   if (gender) query.gender = gender.toLowerCase();
-  if (isTrending === "true") query.isTrending = true;
+
+  if (isTrending === "true") {
+    const count = await Product.countDocuments({ isTrending: true });
+    const trendingProducts = await Product.aggregate([
+      { $match: { isTrending: true } },
+      { $sample: { size: 100 } } // shuffle all
+    ]);
+    return res.status(200).json(trendingProducts);
+  }
+
 
   if (keyword) {
     const keywordsArray = keyword.toLowerCase().split(' ');
@@ -28,7 +37,7 @@ const getAllProducts = async (req, res) => {
     if (baseProduct) {
       query.mainCategory = baseProduct.mainCategory;
       query.subCategory = baseProduct.subCategory;
-      query.gender = baseProduct.gender; 
+      query.gender = baseProduct.gender;
       query._id = { $ne: baseProduct._id }; // Exclude the base product itself
     }
   }
