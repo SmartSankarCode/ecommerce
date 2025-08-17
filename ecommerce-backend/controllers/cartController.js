@@ -29,7 +29,9 @@ const addToCart = async (req, res) => {
 const getCartItems = async (req, res) => {
   const userId = req.user._id;
 
-  const cartItems = await Cart.find({ userId }).populate("productId");
+  const cartItems = await Cart.find({ userId })
+  .populate("productId")
+  .sort({ createdAt: -1 }); // newest first
 
   const formattedCartItems = cartItems
   .filter(item => item.productId) // skip the not availble product after add to
