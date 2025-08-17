@@ -41,6 +41,7 @@ export default function LoginPage({setIsLoggedIn, fetchCartQuantity}) {
   }
   return (
     <>
+      <title>Login</title>
       <Header />
 
       <div className="auth-page" >

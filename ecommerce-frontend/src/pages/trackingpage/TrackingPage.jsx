@@ -71,6 +71,7 @@ export default function TrackingPage({ cartQuantity, isLoggedIn }) {
 
   return (
     <>
+      <title>Tracking</title>
       <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
       {/* getting item details take more time than actual
       bcz of matching technique used above */}

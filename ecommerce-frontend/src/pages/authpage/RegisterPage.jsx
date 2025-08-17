@@ -63,6 +63,7 @@ export default function RegisterPage({setIsLoggedIn, fetchCartQuantity}) {
 
   return (
     <>
+      <title>Register</title>
       <Header />
 
       <div className="auth-page">

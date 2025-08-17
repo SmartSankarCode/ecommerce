@@ -17,6 +17,7 @@ export default function HomePage({ cartQuantity, isLoggedIn }) {
 
   return (
     <>
+      <title>Home</title>
       <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
       <Categories />
       <div className="trending-products">

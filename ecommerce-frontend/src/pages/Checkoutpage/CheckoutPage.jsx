@@ -70,6 +70,7 @@ export default function CheckoutPage({
 
   return (
     <>
+      <title>Checkout</title>
       {cartItems && (
         <>
           <div className="checkout-header">
