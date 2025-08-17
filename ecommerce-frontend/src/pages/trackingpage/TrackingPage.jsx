@@ -18,6 +18,8 @@ export default function TrackingPage({ cartQuantity, isLoggedIn }) {
 
 
   useEffect(() => {
+    if (isLoggedIn === null) return; 
+
     if (!isLoggedIn) {
       navigate('/login');
       return;
@@ -65,7 +67,7 @@ export default function TrackingPage({ cartQuantity, isLoggedIn }) {
     }
 
     fetchOrderData();
-  }, [orderId, itemId])
+  }, [orderId, itemId, isLoggedIn])
 
   return (
     <>

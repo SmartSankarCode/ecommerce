@@ -42,11 +42,19 @@ export default function CheckoutPage({
   }
 
   useEffect(() => {
-    if (isLoggedIn) {
-      fetchCheckoutData();
-    } else {
+    // after refresh this page the app mount and isloggedin null.
+    // so here the isloggedin null intailly and navigate to login
+    // Wait until isLoggedIn is either true or false
+    // or set navigate only if isloggedin = false;
+
+    if (isLoggedIn === null) return; 
+
+    if (!isLoggedIn) {
       navigate("/login");
+      return;
     }
+
+    fetchCheckoutData();
   }, [isLoggedIn, cartQuantity])
 
 
@@ -54,7 +62,7 @@ export default function CheckoutPage({
   async function logout() {
     await axios.post('/api/users/logout', { withCredentials: true });
     // setUser(null);
-    setIsLoggedIn(false);
+    setIsLoggedIn(null); // safety
     setCartQuantity('');
     // await fetchCartQuantity();
     navigate('/login');
@@ -62,54 +70,56 @@ export default function CheckoutPage({
 
   return (
     <>
-      <div className="checkout-header">
-        <div className="header-content">
-          <div className="checkout-header-left-section">
-            <Link to="/">
-              <img className="checkout-logo" src="/frontend-images/S-logo.png" alt="S Logo" />
-              <img className="checkout-ecommerce-logo" src="/frontend-images/ecommerce-logo.png" alt="Ecommerce Logo" />
-              <img className="checkout-ecommerce-logo-small" src="/frontend-images/ecommerce-logo-small.png" alt="Ecommerce Logo Small" />
-            </Link>
-          </div>
-
-          <div className="checkout-header-middle-section">
-            Checkout (<Link className="return-to-home-link" to="/">
-              {cartQuantity.length === 0 ? 0 : cartQuantity} items</Link>)
-          </div>
-
-          <div className="checkout-header-right-section">
-            <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
-              {user?.name || ""}</span>
-            <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
-              src="/frontend-images/icons/user-icon.png" alt="User Icon" />
-            {showLogoutOption && user && <span
-              className="user-logout"
-              onClick={() => { logout() }}>Logout</span>}
-          </div>
-        </div>
-      </div>
-
-      {cartItems?.length > 0 ? (
-        <div className="checkout-page">
-          <div className="page-title">Review items</div>
-
-          <div className="checkout-grid">
-            <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
-              fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
-
-            <PaymentSummary paymentSummary={paymentSummary}
-              fetchCartQuantity={fetchCartQuantity} />
-          </div>
-        </div>
-      ) : (
+      {cartItems && (
         <>
-          {cartItems && <div className="empty-cart">
-            <img src="/frontend-images/empty-cart.png" alt="Empty Cart" />
-            <p>Your cart is empty</p>
-            <Link to="/" className="browse-products-link">
-              Browse Products
-            </Link>
-          </div>}
+          <div className="checkout-header">
+            <div className="header-content">
+              <div className="checkout-header-left-section">
+                <Link to="/">
+                  <img className="checkout-logo" src="/frontend-images/S-logo.png" alt="S Logo" />
+                  <img className="checkout-ecommerce-logo" src="/frontend-images/ecommerce-logo.png" alt="Ecommerce Logo" />
+                  <img className="checkout-ecommerce-logo-small" src="/frontend-images/ecommerce-logo-small.png" alt="Ecommerce Logo Small" />
+                </Link>
+              </div>
+
+              <div className="checkout-header-middle-section">
+                Checkout (<Link className="return-to-home-link" to="/">
+                  {cartQuantity.length === 0 ? 0 : cartQuantity} items</Link>)
+              </div>
+
+              <div className="checkout-header-right-section">
+                <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
+                  {user?.name || ""}</span>
+                <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
+                  src="/frontend-images/icons/user-icon.png" alt="User Icon" />
+                {showLogoutOption && user && <span
+                  className="user-logout"
+                  onClick={() => { logout() }}>Logout</span>}
+              </div>
+            </div>
+          </div>
+
+          {cartItems.length > 0 ? (
+            <div className="checkout-page">
+              <div className="page-title">Review items</div>
+
+              <div className="checkout-grid">
+                <OrderSummary cartItems={cartItems} deliveryOptions={deliveryOptions}
+                  fetchCartQuantity={fetchCartQuantity} fetchCheckoutData={fetchCheckoutData} />
+
+                <PaymentSummary paymentSummary={paymentSummary}
+                  fetchCartQuantity={fetchCartQuantity} />
+              </div>
+            </div>
+          ) : (
+            <div className="empty-cart">
+              <img src="/frontend-images/empty-cart.png" alt="Empty Cart" />
+              <p>Your cart is empty</p>
+              <Link to="/" className="browse-products-link">
+                Browse Products
+              </Link>
+            </div>
+          )}
         </>
       )}
     </>

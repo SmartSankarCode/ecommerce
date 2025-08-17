@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
+import Cookies from "js-cookie";
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/homepage/HomePage'
 import CategoryPage from './pages/categorypage/CategoryPage'
@@ -14,24 +15,21 @@ import './App.css'
 
 function App() {
   const [cartQuantity, setCartQuantity] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [user, setUser] = useState(null) // you can pass this instead of isloggedin
 
   // i setup cartqunatity in paymentsummary api in my backend
   async function fetchCartQuantity() {
-    try {
-      const res = await axios.get('/api/cart/summary', { withCredentials: true });
-      setCartQuantity(res.data.cartQuantity || '');
-    } catch {
-      setCartQuantity(''); // Reset if unauthorized
-    }
+    const res = await axios.get('/api/cart/summary', { withCredentials: true });
+    setCartQuantity(res.data.cartQuantity || '');
   }
 
   async function checkAuth() {
     try {
       const res = await axios.get('/api/users/profile', { withCredentials: true });
-      setIsLoggedIn(true);
       setUser(res.data);
+      setIsLoggedIn(true);
+      fetchCartQuantity();
     } catch {
       setIsLoggedIn(false);
       setUser(null);
@@ -39,11 +37,8 @@ function App() {
   }
 
   useEffect(() => {
-    if (isLoggedIn) {
-      checkAuth();
-      fetchCartQuantity();
-    }
-  }, [isLoggedIn]);
+    checkAuth();
+  }, []);
 
   return (
     <>
