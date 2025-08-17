@@ -12,12 +12,16 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "t-shirt",
+      "teal",
       "plain",
       "cotton",
+      "white",
+      "men",
+      "mens",
       "tshirt",
-      "pack",
-      "teal"
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -35,8 +39,13 @@
     "keywords": [
       "animal",
       "print",
+      "grey",
+      "men",
       "mens",
-      "shirt"
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -53,8 +62,11 @@
     "isTrending": false,
     "keywords": [
       "blue",
+      "cotton",
+      "men",
+      "mens",
       "shirt",
-      "mens"
+      "shirts"
     ]
   },
   {
@@ -71,8 +83,10 @@
     "isTrending": false,
     "keywords": [
       "classy",
-      "mens",
+      "navy",
       "pocket",
+      "men",
+      "mens",
       "jeans"
     ]
   },
@@ -91,7 +105,9 @@
     "keywords": [
       "classy",
       "mens",
-      "short"
+      "short",
+      "men",
+      "shorts"
     ]
   },
   {
@@ -108,14 +124,19 @@
     "isTrending": false,
     "keywords": [
       "classy",
+      "yellow",
+      "men",
       "mens",
-      "shirt"
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
     "name": "Enlision Mens Cotton Linen Shirt",
     "image": "/images/mens/Enlision Mens Cotton Linen Shirt.jpg",
-    "priceRupees": 2599,
+    "priceRupees": 599,
     "rating": {
       "stars": 2.5,
       "count": 115
@@ -126,10 +147,13 @@
     "isTrending": false,
     "keywords": [
       "enlision",
-      "mens",
+      "gents",
       "cotton",
       "linen",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -146,9 +170,11 @@
     "isTrending": true,
     "keywords": [
       "fashion",
-      "mens",
       "denim",
+      "men",
+      "mens",
       "shirt",
+      "shirts",
       "blue"
     ]
   },
@@ -166,8 +192,12 @@
     "isTrending": false,
     "keywords": [
       "killer",
+      "men",
       "mens",
-      "shirt"
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -185,9 +215,11 @@
     "keywords": [
       "long",
       "sleeve",
-      "mens",
       "pink",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -205,9 +237,11 @@
     "keywords": [
       "long",
       "sleeve",
-      "mens",
       "white",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -224,9 +258,13 @@
     "isTrending": false,
     "keywords": [
       "luffy",
-      "mens",
       "stylish",
-      "shirt"
+      "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -242,12 +280,16 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "men",
       "contrast",
       "trim",
       "patched",
       "pocket",
-      "shirt"
+      "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -264,6 +306,8 @@
     "isTrending": false,
     "keywords": [
       "men",
+      "mens",
+      "jean",
       "cotton",
       "straight",
       "leg",
@@ -284,6 +328,7 @@
     "isTrending": true,
     "keywords": [
       "men",
+      "mens",
       "slant",
       "pocket",
       "jeans"
@@ -306,7 +351,10 @@
       "solid",
       "color",
       "pocket",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -323,6 +371,11 @@
     "isTrending": false,
     "keywords": [
       "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt",
       "solid",
       "round",
       "neck",
@@ -330,7 +383,7 @@
     ]
   },
   {
-    "name": "Men Straight Smart Casual Dress Pant11",
+    "name": "Men Straight Smart Casual Dress Pant",
     "image": "/images/mens/Men Straight Smart Casual Dress Pant11.jpg",
     "priceRupees": 1005,
     "rating": {
@@ -343,6 +396,7 @@
     "isTrending": true,
     "keywords": [
       "men",
+      "mens",
       "straight",
       "smart",
       "casual",
@@ -363,12 +417,16 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "men",
       "two",
       "tone",
       "pocket",
       "patched",
-      "shirt"
+      "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -387,7 +445,10 @@
       "men's",
       "breathable",
       "linen",
-      "short"
+      "short",
+      "shorts",
+      "men",
+      "mens"
     ]
   },
   {
@@ -406,7 +467,10 @@
       "men's",
       "classic",
       "pants",
-      "trouser"
+      "trouser",
+      "trousers",
+      "men",
+      "mens"
     ]
   },
   {
@@ -423,13 +487,16 @@
     "isTrending": true,
     "keywords": [
       "men's",
+      "men",
+      "mens",
       "corduroy",
       "cargo",
-      "shorts"
+      "shorts",
+      "short"
     ]
   },
   {
-    "name": "Men's Dress Pants Trouser7",
+    "name": "Men's Dress Pants Trouser",
     "image": "/images/mens/Men's Dress Pants Trouser7.jpg",
     "priceRupees": 584,
     "rating": {
@@ -443,8 +510,11 @@
     "keywords": [
       "men's",
       "dress",
+      "men",
+      "mens",
       "pants",
-      "trouser"
+      "trouser",
+      "trousers"
     ]
   },
   {
@@ -461,14 +531,17 @@
     "isTrending": false,
     "keywords": [
       "men's",
+      "men",
+      "mens",
       "knitted",
       "straight",
       "casual",
-      "short"
+      "short",
+      "shorts"
     ]
   },
   {
-    "name": "Men's Polo Fit Formal Pant12",
+    "name": "Men's Polo Fit Formal Pant",
     "image": "/images/mens/Men's polo fit formal pant12.jpg",
     "priceRupees": 915,
     "rating": {
@@ -481,10 +554,13 @@
     "isTrending": false,
     "keywords": [
       "men's",
+      "men",
+      "mens",
       "polo",
       "fit",
       "formal",
-      "pant"
+      "pant",
+      "pants"
     ]
   },
   {
@@ -504,7 +580,10 @@
       "vacation",
       "casual",
       "print",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -521,6 +600,11 @@
     "isTrending": false,
     "keywords": [
       "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt",
       "golf",
       "polo",
       "T-shirt",
@@ -540,11 +624,13 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "mens",
       "best",
       "summer",
       "outfit",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -560,10 +646,12 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
-      "mens",
       "casual",
       "wear",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -580,9 +668,12 @@
     "isTrending": false,
     "keywords": [
       "mens",
+      "men",
+      "mens",
       "coffee",
       "stretch",
       "chino",
+      "shorts",
       "short"
     ]
   },
@@ -599,10 +690,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "mens",
       "cotton",
       "cool",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -618,10 +711,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "mens",
       "light",
       "green",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -638,9 +733,12 @@
     "isTrending": true,
     "keywords": [
       "mens",
+      "men",
+      "mens",
       "new",
       "stylish",
-      "short"
+      "short",
+      "shorts"
     ]
   },
   {
@@ -656,10 +754,12 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
-      "mens",
       "party",
       "wear",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -675,13 +775,17 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "mens",
       "tom",
       "and",
       "jerry",
       "printed",
       "cotton",
-      "shirt"
+      "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -697,10 +801,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
-      "mens",
       "traditional",
       "cotton",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -716,6 +822,7 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "men",
       "mens",
       "washed",
       "cropped",
@@ -737,6 +844,7 @@
     "keywords": [
       "pants",
       "men",
+      "mens",
       "straight",
       "smart",
       "casual",
@@ -758,9 +866,13 @@
     "isTrending": false,
     "keywords": [
       "reflective",
+      "men",
       "mens",
-      "anime",
-      "t-shirt"
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt",
+      "anime"
     ]
   },
   {
@@ -777,12 +889,16 @@
     "isTrending": false,
     "keywords": [
       "skull",
+      "men",
       "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
       "t-shirt"
     ]
   },
   {
-    "name": "Slim Fit Trouser For Men9",
+    "name": "Slim Fit Trouser For Men",
     "image": "/images/mens/Slim-fit trouser for Men9.jpg",
     "priceRupees": 542,
     "rating": {
@@ -797,8 +913,10 @@
       "slim",
       "fit",
       "trouser",
-      "men9",
-      "pant"
+      "men",
+      "mens",
+      "pant",
+      "pants"
     ]
   },
   {
@@ -815,9 +933,11 @@
     "isTrending": false,
     "keywords": [
       "smart",
-      "men",
       "bladeed",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -834,6 +954,7 @@
     "isTrending": true,
     "keywords": [
       "stylish",
+      "men",
       "mens",
       "jeans"
     ]
@@ -852,12 +973,16 @@
     "isTrending": true,
     "keywords": [
       "stylish",
+      "men",
       "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
       "t-shirt"
     ]
   },
   {
-    "name": "Timeless And Comfy Jean6",
+    "name": "Timeless And Comfy Jean",
     "image": "/images/mens/Timeless And Comfy Jean6.jpg",
     "priceRupees": 1592,
     "rating": {
@@ -869,10 +994,13 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "men",
+      "mens",
       "timeless",
       "and",
       "comfy",
-      "jean"
+      "jean",
+      "jeans"
     ]
   },
   {
@@ -889,9 +1017,11 @@
     "isTrending": false,
     "keywords": [
       "trendy",
-      "mens",
       "shaded",
-      "shirt"
+      "men",
+      "mens",
+      "shirt",
+      "shirts"
     ]
   },
   {
@@ -908,8 +1038,12 @@
     "isTrending": false,
     "keywords": [
       "trendy",
+      "men",
       "mens",
-      "t-shirts"
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt"
     ]
   },
   {
@@ -926,7 +1060,12 @@
     "isTrending": true,
     "keywords": [
       "basic",
-      "shirt",
+      "men",
+      "mens",
+      "tshirt",
+      "tshirts",
+      "t-shirts",
+      "t-shirt",
       "crew",
       "neck",
       "black"
@@ -947,8 +1086,11 @@
     "keywords": [
       "best",
       "set",
+      "jeans",
       "womens",
-      "jeans"
+      "women",
+      "bottoms",
+      "bottom"
     ]
   },
   {
@@ -967,6 +1109,9 @@
       "boot",
       "style",
       "womens",
+      "women",
+      "bottoms",
+      "bottom",
       "jeans"
     ]
   },
@@ -986,8 +1131,12 @@
       "casual",
       "blad",
       "pant",
+      "pants",
       "fro",
-      "womens"
+      "womens",
+      "women",
+      "bottoms",
+      "bottom"
     ]
   },
   {
@@ -1006,7 +1155,11 @@
       "classy",
       "stylish",
       "womens",
-      "pants"
+      "women",
+      "bottoms",
+      "bottom",
+      "pants",
+      "pant"
     ]
   },
   {
@@ -1023,9 +1176,13 @@
     "isTrending": true,
     "keywords": [
       "classy",
-      "womens",
       "cotton",
-      "tshirt"
+      "womens",
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1042,8 +1199,12 @@
     "isTrending": false,
     "keywords": [
       "classy",
+      "short",
+      "shorts",
       "womens",
-      "short"
+      "women",
+      "bottoms",
+      "bottom"
     ]
   },
   {
@@ -1061,8 +1222,9 @@
     "keywords": [
       "classy",
       "womens",
-      "top",
-      "wear"
+      "women",
+      "tops",
+      "top"
     ]
   },
   {
@@ -1081,7 +1243,11 @@
       "comfort",
       "grey",
       "womens",
-      "tshirt"
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1099,6 +1265,8 @@
     "keywords": [
       "cotton",
       "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1116,9 +1284,13 @@
     "isTrending": false,
     "keywords": [
       "dimki",
-      "womens",
       "plain",
-      "tshirt"
+      "womens",
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1137,7 +1309,11 @@
       "double",
       "pocket",
       "womens",
-      "short"
+      "women",
+      "bottoms",
+      "bottom",
+      "short",
+      "shorts"
     ]
   },
   {
@@ -1156,7 +1332,11 @@
       "double",
       "rack",
       "womens",
-      "shorts"
+      "women",
+      "bottoms",
+      "bottom",
+      "shorts",
+      "short"
     ]
   },
   {
@@ -1175,7 +1355,12 @@
       "drawstring",
       "wash",
       "denim",
-      "shorts"
+      "womens",
+      "women",
+      "bottoms",
+      "bottom",
+      "shorts",
+      "short"
     ]
   },
   {
@@ -1195,6 +1380,8 @@
       "autumn",
       "leaves",
       "womens",
+      "women",
+      "tops",
       "top"
     ]
   },
@@ -1213,8 +1400,12 @@
     "keywords": [
       "flower",
       "printed",
-      "woments",
-      "tshirt"
+      "womens",
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1235,6 +1426,8 @@
       "ethnic",
       "wear",
       "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1256,6 +1449,9 @@
       "silk",
       "round",
       "shirt",
+      "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1274,8 +1470,12 @@
     "keywords": [
       "half",
       "cut",
+      "womens",
       "women",
-      "pant"
+      "bottoms",
+      "bottom",
+      "pant",
+      "pants"
     ]
   },
   {
@@ -1292,7 +1492,9 @@
     "isTrending": false,
     "keywords": [
       "jarfi",
+      "women",
       "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1311,7 +1513,9 @@
     "keywords": [
       "leaf",
       "printed",
+      "womens",
       "women",
+      "tops",
       "top"
     ]
   },
@@ -1330,6 +1534,9 @@
     "keywords": [
       "lippy",
       "womens",
+      "women",
+      "bottoms",
+      "bottom",
       "lean",
       "jeans"
     ]
@@ -1349,6 +1556,8 @@
     "keywords": [
       "listra",
       "womens",
+      "women",
+      "tops",
       "top"
     ]
   },
@@ -1368,7 +1577,11 @@
       "loose",
       "crey",
       "womens",
-      "pant"
+      "women",
+      "bottoms",
+      "bottom",
+      "pant",
+      "pants"
     ]
   },
   {
@@ -1387,7 +1600,11 @@
       "lovely",
       "printed",
       "womens",
-      "tshirt"
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1406,7 +1623,11 @@
       "luxury",
       "fashion",
       "womens",
-      "short"
+      "women",
+      "bottoms",
+      "bottom",
+      "short",
+      "shorts"
     ]
   },
   {
@@ -1425,7 +1646,10 @@
       "moody",
       "risen",
       "jeans",
-      "women"
+      "womens",
+      "women",
+      "bottoms",
+      "bottom"
     ]
   },
   {
@@ -1442,9 +1666,13 @@
     "isTrending": false,
     "keywords": [
       "womens",
+      "women",
+      "bottoms",
+      "bottom",
       "drawstring",
       "denim",
-      "shorts"
+      "shorts",
+      "short"
     ]
   },
   {
@@ -1462,7 +1690,11 @@
     "keywords": [
       "slimy",
       "womens",
-      "pant"
+      "women",
+      "bottoms",
+      "bottom",
+      "pant",
+      "pants"
     ]
   },
   {
@@ -1481,7 +1713,11 @@
       "solid",
       "cotton",
       "womens",
-      "pant"
+      "women",
+      "bottoms",
+      "bottom",
+      "pant",
+      "pants"
     ]
   },
   {
@@ -1501,6 +1737,8 @@
       "long",
       "sleeve",
       "womens",
+      "women",
+      "tops",
       "top"
     ]
   },
@@ -1519,7 +1757,10 @@
     "keywords": [
       "straight",
       "leg",
+      "women",
       "womens",
+      "bottoms",
+      "bottom",
       "jeans"
     ]
   },
@@ -1539,6 +1780,8 @@
       "stylish",
       "plain",
       "womens",
+      "women",
+      "tops",
       "top"
     ]
   },
@@ -1558,6 +1801,9 @@
       "stylish",
       "red",
       "printed",
+      "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1575,9 +1821,12 @@
     "isTrending": false,
     "keywords": [
       "trend",
-      "shirts",
-      "short",
-      "women"
+      "tshirts",
+      "tshirts",
+      "t-shirts",
+      "t-shirt",
+      "women",
+      "womens"
     ]
   },
   {
@@ -1595,7 +1844,12 @@
     "keywords": [
       "wishted",
       "fit",
+      "women",
       "womens",
+      "bottoms",
+      "bottom",
+      "pant",
+      "pants",
       "jeans"
     ]
   },
@@ -1615,6 +1869,9 @@
       "women's",
       "cotton",
       "linen",
+      "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1633,6 +1890,11 @@
     "keywords": [
       "women's",
       "dress",
+      "pants",
+      "women",
+      "womens",
+      "bottoms",
+      "bottom",
       "pants",
       "wide",
       "leg"
@@ -1653,8 +1915,13 @@
     "keywords": [
       "women's",
       "drawstring",
+      "womens",
+      "women",
+      "bottoms",
+      "bottom",
       "waist",
-      "short"
+      "short",
+      "shorts"
     ]
   },
   {
@@ -1670,11 +1937,15 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
-      "women",
       "plain",
       "cotton",
       "oversized",
-      "shirt",
+      "womens",
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts",
       "gray"
     ]
   },
@@ -1691,9 +1962,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
-      "women",
       "relaxed",
       "lounge",
+      "women",
+      "womens",
+      "bottoms",
+      "bottom",
+      "pant",
       "pants",
       "pink"
     ]
@@ -1711,9 +1986,11 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
-      "women",
       "striped",
       "dress",
+      "womens",
+      "women",
+      "tops",
       "top"
     ]
   },
@@ -1731,9 +2008,12 @@
     "isTrending": true,
     "keywords": [
       "women",
+      "bottoms",
+      "bottom",
       "summer",
       "jean",
-      "shorts"
+      "shorts",
+      "short"
     ]
   },
   {
@@ -1749,10 +2029,13 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
-      "womens",
       "casual",
-      "short",
-      "tshirt"
+      "womens",
+      "women",
+      "tshirt",
+      "tshirts",
+      "t-shirt",
+      "t-shirts"
     ]
   },
   {
@@ -1772,6 +2055,9 @@
       "black",
       "dotted",
       "pattern",
+      "women",
+      "womens",
+      "kurtas",
       "kurta"
     ]
   },
@@ -1788,10 +2074,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "anti",
       "slip",
       "slippers",
-      "men"
+      "men",
+      "mens"
     ]
   },
   {
@@ -1807,10 +2095,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "belt",
       "type",
+      "womens",
       "women",
-      "chappals"
+      "chappals",
+      "chappal"
     ]
   },
   {
@@ -1826,10 +2117,13 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "belt",
       "type",
       "womens",
-      "sandals"
+      "women",
+      "sandals",
+      "sandal"
     ]
   },
   {
@@ -1845,9 +2139,12 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "candy",
       "womens",
-      "shoe"
+      "women",
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -1863,9 +2160,12 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "charming",
       "opentoe",
       "sandals",
+      "sandal",
+      "womens",
       "women"
     ]
   },
@@ -1882,7 +2182,9 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "classy",
+      "men",
       "mens",
       "sandals"
     ]
@@ -1900,7 +2202,9 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "crunch",
+      "men",
       "mens",
       "daily",
       "wear",
@@ -1920,6 +2224,7 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "daily",
       "wear",
       "womens",
@@ -1939,7 +2244,9 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "dimba",
+      "men",
       "mens",
       "sandals"
     ]
@@ -1957,9 +2264,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "eagle",
+      "men",
       "mens",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -1975,10 +2285,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "elegent",
       "womens",
+      "women",
       "boot",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -1994,10 +2307,13 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "fabulous",
       "pink",
       "shoe",
-      "womens"
+      "shoes",
+      "womens",
+      "women"
     ]
   },
   {
@@ -2013,8 +2329,11 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "fairy",
       "womens",
+      "women",
+      "shoes",
       "shoe"
     ]
   },
@@ -2031,9 +2350,12 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "fashonal",
       "womens",
-      "shoe"
+      "women",
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -2049,9 +2371,12 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "glamoures",
       "classy",
       "shoe",
+      "shoes",
+      "womens",
       "women"
     ]
   },
@@ -2068,7 +2393,9 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "handmade",
+      "men",
       "mens",
       "slippers"
     ]
@@ -2086,7 +2413,9 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "lobra",
+      "men",
       "mens",
       "shoes"
     ]
@@ -2104,10 +2433,14 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "men's",
+      "men",
+      "mens",
       "barklay",
       "canvas",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -2123,12 +2456,16 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "men's",
       "fashion",
       "color",
       "casual",
       "flat",
-      "shoes"
+      "men",
+      "mens",
+      "shoes",
+      "shoe"
     ]
   },
   {
@@ -2144,10 +2481,14 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "men's",
       "white",
       "casual",
       "flat",
+      "men",
+      "mens",
+      "shoe",
       "shoes"
     ]
   },
@@ -2164,9 +2505,12 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "men",
+      "mens",
       "athletic",
       "shoes",
+      "shoe",
       "white"
     ]
   },
@@ -2183,7 +2527,9 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "men",
+      "mens",
       "brown",
       "flat",
       "sneakers"
@@ -2198,10 +2544,12 @@
       "count": 108
     },
     "mainCategory": "footwear",
-    "subCategory": "chappals",
+    "subCategory": "slippers",
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
+      "men",
       "mens",
       "classy",
       "chappals"
@@ -2220,6 +2568,8 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
+      "men",
       "mens",
       "sports",
       "sandals"
@@ -2238,9 +2588,12 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "party",
       "wear",
       "womens",
+      "women",
+      "sandal",
       "sandals"
     ]
   },
@@ -2257,8 +2610,11 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
+      "sandals",
       "sandal",
       "heels",
+      "womens",
       "women"
     ]
   },
@@ -2275,8 +2631,11 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "solid",
+      "men",
       "mens",
+      "shoes",
       "shoe"
     ]
   },
@@ -2293,8 +2652,10 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "sports",
       "slippers",
+      "men",
       "mens"
     ]
   },
@@ -2311,7 +2672,9 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "stylish",
+      "womens",
       "women",
       "chappals"
     ]
@@ -2329,10 +2692,13 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "stylish",
       "womens",
+      "women",
       "canvas",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -2348,10 +2714,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "summer",
       "fit",
       "womens",
-      "sandals"
+      "women",
+      "sandals",
+      "sandal"
     ]
   },
   {
@@ -2367,10 +2736,13 @@
     "gender": "men",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "trekey",
+      "men",
       "mens",
       "boot",
-      "shoes"
+      "shoes",
+      "shoe"
     ]
   },
   {
@@ -2386,7 +2758,9 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "trendy",
+      "men",
       "mens",
       "sandals"
     ]
@@ -2404,10 +2778,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "unque",
       "way",
       "womens",
-      "sandals"
+      "women",
+      "sandals",
+      "sandal"
     ]
   },
   {
@@ -2423,8 +2800,10 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "victo",
       "classy",
+      "womens",
       "women",
       "heels"
     ]
@@ -2442,10 +2821,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "widge",
       "style",
       "womens",
-      "sandals"
+      "women",
+      "sandals",
+      "sandal"
     ]
   },
   {
@@ -2461,8 +2843,11 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
+      "womens",
       "women",
       "sandal",
+      "sandals",
       "white",
       "pink"
     ]
@@ -2480,10 +2865,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "womens",
+      "women",
       "classy",
       "formal",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -2499,10 +2887,13 @@
     "gender": "women",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "womens",
+      "women",
       "daily",
       "wear",
-      "shoe"
+      "shoe",
+      "shoes"
     ]
   },
   {
@@ -2518,8 +2909,11 @@
     "gender": "women",
     "isTrending": false,
     "keywords": [
+      "footwear",
       "womens",
+      "women",
       "sandal",
+      "sandals",
       "party",
       "wear"
     ]
@@ -2537,8 +2931,11 @@
     "gender": "men",
     "isTrending": true,
     "keywords": [
+      "footwear",
       "zammer",
+      "men",
       "mens",
+      "shoes",
       "shoe"
     ]
   },

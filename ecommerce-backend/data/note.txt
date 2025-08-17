@@ -1,0 +1,11 @@
+if your product _id values are modified or removed 
+in your products.json, MongoDB will regenerate new IDs on seeding,
+and your frontend or related data (cart, orders, etc.) 
+that relies on those IDs may break.
+
+appilicable for delivery options also.(products.json or deliveryOptions.json)
+
+best practice-
+-Don’t reseed often.
+-use admin dashboard for create/update/delete data in database
+-if no dashboard, handle it manually
