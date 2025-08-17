@@ -28,6 +28,7 @@ export default function CategoryPage({ cartQuantity, isLoggedIn }) {
 
   return (
     <>
+      <title>Items</title>
       <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
 
       {products && <div className="category-page">

@@ -25,6 +25,7 @@ export default function ProductPage({ cartQuantity, fetchCartQuantity, isLoggedI
 
   return (
     <>
+      <title>Product Details</title>
       <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
       <ProductDetails product={product} fetchCartQuantity={fetchCartQuantity}
         isLoggedIn={isLoggedIn} />

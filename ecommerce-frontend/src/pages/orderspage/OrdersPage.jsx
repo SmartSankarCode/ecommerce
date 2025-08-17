@@ -34,6 +34,7 @@ export default function OrdersPage({ cartQuantity, isLoggedIn, fetchCartQuantity
 
   return (
     <>
+      <title>Orders</title>
       <Header cartQuantity={cartQuantity} isLoggedIn={isLoggedIn} />
       {orders?.length > 0 ? (
         <div className="orders-page">

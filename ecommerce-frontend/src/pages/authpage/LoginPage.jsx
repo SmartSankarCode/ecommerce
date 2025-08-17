@@ -46,6 +46,7 @@ export default function LoginPage({setIsLoggedIn,
   }
   return (
     <>
+      <title>Login</title>
       <Header />
 
       <div className="auth-page" >

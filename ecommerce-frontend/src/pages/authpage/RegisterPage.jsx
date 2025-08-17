@@ -68,6 +68,7 @@ export default function RegisterPage({setIsLoggedIn,
 
   return (
     <>
+      <title>Register</title>
       <Header />
 
       <div className="auth-page">
