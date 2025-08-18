@@ -1,0 +1,11 @@
+# This _redirects file is required for Netlify deployment so that
+# frontend can call backend APIs and fetch images without hardcoding URLs
+
+# Redirect API calls to backend server
+/api/*  https://smartsankarcode-ecommerce-backend.onrender.com/api/:splat  200
+
+# Redirect backend images to backend server
+/images/*  https://smartsankarcode-ecommerce-backend.onrender.com/images/:splat  200
+
+# Redirect all other frontend routes to index.html for React Router
+/*    /index.html   200
