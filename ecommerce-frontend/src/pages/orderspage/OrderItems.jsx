@@ -34,7 +34,7 @@ export default function OrderItems({ item, fetchCartQuantity, orderId}) {
       <div className="product-image-container"  >
         <Link to={`/product/${item.productId._id}`}>
           <img
-            src={`http://localhost:3000${item.productId.image}`}
+            src={item.productId.image}
             alt={item.productId.name}
           />
         </Link>

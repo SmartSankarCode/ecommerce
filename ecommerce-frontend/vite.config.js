@@ -6,10 +6,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', //  backend server
+        target: 'https://smartsankarcode-ecommerce-backend.onrender.com', // backend server
+        changeOrigin: true,
+        secure: false, 
       },
       '/images': {
-        target: 'http://localhost:3000', //  backend server
+        target: 'https://smartsankarcode-ecommerce-backend.onrender.com', // backend server
+        changeOrigin: true,
+        secure: false,  
       }
     },
   },
