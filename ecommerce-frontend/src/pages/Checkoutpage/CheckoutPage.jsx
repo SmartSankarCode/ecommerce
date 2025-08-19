@@ -47,7 +47,7 @@ export default function CheckoutPage({
     // Wait until isLoggedIn is either true or false
     // or set navigate only if isloggedin = false;
 
-    if (isLoggedIn === null) return; 
+    if (isLoggedIn === null) return;
 
     if (!isLoggedIn) {
       navigate("/login");
@@ -90,7 +90,13 @@ export default function CheckoutPage({
 
               <div className="checkout-header-right-section">
                 <span onClick={() => { setShowLogoutOption(!showLogoutOption) }}>
-                  {user?.name || ""}</span>
+                  {/* set up with help of ai  */}
+                  {user?.name
+                    ? (user.name.split(" ")[0].length > 10
+                      ? user.name.split(" ")[0].substring(0, 10) + "..."
+                      : user.name.split(" ")[0])
+                    : ""}
+                </span>
                 <img onClick={() => { setShowLogoutOption(!showLogoutOption) }}
                   src="/frontend-images/icons/user-icon.png" alt="User Icon" />
                 {showLogoutOption && user && <span

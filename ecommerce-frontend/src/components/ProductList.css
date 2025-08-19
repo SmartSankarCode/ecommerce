@@ -14,7 +14,8 @@
 .product-card img {
   width: 100%;
   height: 150px;
-  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  /* object-fit: contain; */
 }
 
 .product-card h3 {
@@ -68,15 +69,19 @@
 @media screen and (max-width: 650px) {
   .product-grid {
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .product-card {
     width: 100%;
-    max-width: 160px;
-    padding: 15px;
+    max-width: 250px;
+    padding: 15px 10px;
   }
 
+  .product-card img {
+    height: auto;         
+  }
+  
   .product-card h3 {
     height: 30px;
     font-size: 12px;
@@ -86,5 +91,3 @@
     font-size: 12px;
   }
 }
-
-
