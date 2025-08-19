@@ -213,7 +213,7 @@
 @media screen and (max-width: 650px) {
 
   .product-details-image {
-    max-height: 300px;
+    max-height: 250px;
     max-width: 300px;
     margin: auto;
   }

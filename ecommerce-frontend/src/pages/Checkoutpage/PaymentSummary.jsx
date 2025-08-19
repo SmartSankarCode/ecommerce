@@ -42,7 +42,7 @@ export default function PaymentSummary({ paymentSummary, fetchCartQuantity }) {
           <div className="payment-summary-row">
             <div>Discount (5%):</div>
             <div className="payment-summary-money">
-              ₹{paymentSummary.discountAmount}
+              -₹{paymentSummary.discountAmount}
             </div>
           </div>
 

@@ -77,12 +77,12 @@ export default function orderSummary({ cartItems, deliveryOptions,
                         </select>
                       </span>
                     </span>
-                    <span className="delete-item"
+                    <button className="delete-item"
                       onClick={() => removeCartItem(item.productId)}>
                       <img className="delete-icon"
                         src="/frontend-images/icons/delete-icon.png" alt="delete-icon" />
                       <span>Remove</span>
-                    </span>
+                    </button>
                   </div>
                 </div>
                 <div className="delivery-options">

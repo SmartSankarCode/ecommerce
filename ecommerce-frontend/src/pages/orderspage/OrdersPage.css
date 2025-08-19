@@ -156,6 +156,7 @@
 @media (max-width: 600px) {
   .orders-page {
     max-width: 100%;
+    padding: 0px 10px;
   }
 
   .order-header {
@@ -183,6 +184,10 @@
   .order-header-right-section {
     display: grid;
     grid-template-columns: auto 1fr;
+  }
+
+  .order-details-grid{
+    padding: 30px 5px;
   }
 }
 
