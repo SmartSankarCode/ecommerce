@@ -16,24 +16,24 @@ This is a **Node.js + Express** backend for an e-commerce platform built with Mo
 
 ## 📁 Folder Structure
 ecommerce-backend/
-├── config/             # Database and server configuration
-├── controllers/        # Route logic (auth, products, deliveryOptions, cart, orders, etc.)
-├── data/               # Dummy data files (e.g., products.json)
-├── middleware/         # Custom middleware (auth)
-├── models/             # Mongoose schemas (User, Product, deliveryOptions, Cart, Order, etc.)
-├── public/             # Static assets (like images)
-│   └── images/
-│       ├── Mens/
-│       ├── Womens/
-│       ├── Footwear/
-│       └── Home-Kitchen/
-├── routes/             # API route definitions
-├── scripts/            # DB seeding or maintenance scripts etc.
-├── .env                # Environment variables
-├── .gitignore          # Git ignore rules
-├── package.json        # Project metadata and dependencies
-├── package-lock.json   # Exact dependency versions
-└── README.md           # Project documentation
+- ├── config/             # Database and server configuration
+- ├── controllers/        # Route logic (auth, products, deliveryOptions, cart, orders, etc.)
+- ├── data/               # Dummy data files (e.g., products.json)
+- ├── middleware/         # Custom middleware (auth)
+- ├── models/             # Mongoose schemas (User, Product, deliveryOptions, Cart, Order, etc.)
+- ├── public/             # Static assets (like images)
+- │   └── images/
+- │       ├── Mens/
+- │       ├── Womens/
+- │       ├── Footwear/
+- │       └── Home-Kitchen/
+- ├── routes/             # API route definitions
+- ├── scripts/            # DB seeding or maintenance scripts etc.
+- ├── .env                # Environment variables
+- ├── .gitignore          # Git ignore rules
+- ├── package.json        # Project metadata and dependencies
+- ├── package-lock.json   # Exact dependency versions
+- └── README.md           # Project documentation
 
 
 ---
